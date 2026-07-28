@@ -74,7 +74,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="absolute -bottom-6 -left-6 w-1/2 max-w-[200px] aspect-square overflow-hidden border-8 border-luxury-white shadow-2xl hidden sm:block"
+            className="absolute -bottom-6 -left-6 w-1/2 max-w-[200px] aspect-square overflow-hidden shadow-2xl border border-black/10 hidden sm:block"
           >
             <img 
               src="https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3054.PNG" 

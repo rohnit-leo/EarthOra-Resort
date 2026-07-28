@@ -46,12 +46,14 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 left-0 w-full z-50 transition-all duration-500",
-          isScrolled ? "py-4 glass-effect shadow-sm" : "py-6 bg-transparent"
+          isScrolled 
+            ? "py-3 bg-luxury-white/98 border-b border-black/10 shadow-md backdrop-blur-md" 
+            : "py-5 bg-luxury-white/90 border-b border-black/5 shadow-xs"
         )}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <img src="https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2996.PNG" alt="EarthOra Resort Logo" className="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-sm origin-left" />
+            <img src="https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2996.PNG" alt="EarthOra Resort Logo" className="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-sm origin-left" />
             <span className={cn(
               "text-2xl md:text-3xl font-serif tracking-wide hidden sm:block transition-colors",
               isDarkText ? "text-dark-surface" : "text-white"
@@ -61,13 +63,13 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-4 lg:space-x-5">
+          <nav className="hidden md:flex items-center space-x-5 lg:space-x-7">
             {LINKS.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  "text-xs uppercase tracking-wider font-semibold transition-colors hover:text-subtle-gold py-1 px-1",
+                  "font-serif text-[13px] tracking-[0.18em] uppercase font-medium transition-colors hover:text-subtle-gold py-1",
                   isDarkText ? "text-dark-surface" : "text-white/90 hover:text-white"
                 )}
               >

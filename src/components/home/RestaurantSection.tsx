@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export function RestaurantSection() {
   return (
-    <section className="pt-12 md:pt-16 pb-28 bg-dark-surface text-luxury-white overflow-hidden relative border-t border-subtle-gold/10">
+    <section className="py-28 md:py-32 bg-dark-surface text-luxury-white overflow-hidden relative border-t-2 border-subtle-gold/20 shadow-2xl">
       {/* Glow effects */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-subtle-gold/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-nature-green/10 rounded-full blur-[140px] pointer-events-none" />

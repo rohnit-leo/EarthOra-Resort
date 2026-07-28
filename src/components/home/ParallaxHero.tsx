@@ -2,10 +2,10 @@ import { motion } from "motion/react";
 
 export function ParallaxHero() {
   return (
-    <section className="relative py-20 md:py-24 overflow-hidden flex items-center justify-center bg-dark-surface">
+    <section className="relative h-[60vh] min-h-[460px] overflow-hidden flex items-center justify-center border-y border-subtle-gold/20">
       <motion.div
         initial={{ y: 0 }}
-        whileInView={{ y: -30 }}
+        whileInView={{ y: -40 }}
         transition={{ ease: "linear", duration: 1 }}
         className="absolute inset-0 z-0"
         style={{ scale: 1.15 }}
@@ -14,9 +14,9 @@ export function ParallaxHero() {
           src="https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3057.PNG" 
           alt="Resort Nature" 
           loading="lazy"
-          className="w-full h-full object-cover opacity-80"
+          className="w-full h-full object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-dark-surface/50"></div>
+        <div className="absolute inset-0 bg-dark-surface/60"></div>
       </motion.div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">

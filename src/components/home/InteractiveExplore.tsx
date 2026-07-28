@@ -17,7 +17,7 @@ export function InteractiveExplore() {
   ];
 
   return (
-    <section ref={containerRef} className="py-28 bg-dark-surface px-6 md:px-12 relative overflow-hidden border-t border-subtle-gold/10">
+    <section ref={containerRef} className="py-28 md:py-36 bg-dark-surface px-6 md:px-12 relative overflow-hidden border-t-2 border-subtle-gold/20 shadow-2xl">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-nature-green/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-subtle-gold/10 rounded-full blur-[120px] pointer-events-none" />

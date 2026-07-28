@@ -12,7 +12,7 @@ const IMAGES = [
 
 export function ExperiencesSection() {
   return (
-    <section className="py-24 bg-luxury-white overflow-hidden relative">
+    <section className="pt-24 pb-28 md:pb-36 bg-luxury-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <motion.div
