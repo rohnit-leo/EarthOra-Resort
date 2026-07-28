@@ -25,15 +25,15 @@ const ROOMS = [
 
 export function RoomsPreview() {
   return (
-    <section className="py-32 bg-luxury-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+    <section className="py-20 md:py-24 bg-luxury-white">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
             <motion.h4 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-nature-green uppercase tracking-widest text-sm font-medium mb-4"
+              className="text-nature-green uppercase tracking-[0.2em] text-xs font-semibold mb-3"
             >
               Luxury Stays
             </motion.h4>
@@ -42,7 +42,7 @@ export function RoomsPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-serif text-dark-surface max-w-xl"
+              className="text-3xl md:text-4xl font-serif text-dark-surface max-w-xl"
             >
               Accommodations Designed for Serenity
             </motion.h2>
@@ -52,58 +52,58 @@ export function RoomsPreview() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <button className="magnetic pb-2 border-b border-subtle-gold text-sm tracking-widest uppercase hover:text-nature-green hover:border-nature-green transition-colors">
+            <Link to="/stay" className="magnetic pb-1 border-b border-subtle-gold text-xs tracking-widest uppercase hover:text-nature-green hover:border-nature-green transition-colors inline-block">
               View All Rooms
-            </button>
+            </Link>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {ROOMS.map((room, i) => (
             <motion.div 
               key={room.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: i * 0.2 }}
-              className="group cursor-none"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: i * 0.15 }}
+              className="group flex flex-col bg-soft-ivory/40 p-5 rounded-2xl border border-black/5 shadow-xs hover:shadow-md transition-all duration-300"
             >
-              <div className="overflow-hidden aspect-[4/3] mb-8 relative">
+              <div className="overflow-hidden aspect-[16/10] max-h-[260px] mb-5 relative rounded-xl">
                 <img 
                   src={room.image} 
                   alt={room.name} 
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-dark-surface/10 group-hover:bg-transparent transition-colors duration-500" />
               </div>
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-3xl font-serif text-dark-surface">{room.name}</h3>
+              <div className="flex justify-between items-start mb-3">
+                <h3 className="text-2xl font-serif text-dark-surface">{room.name}</h3>
                 <div className="text-right">
-                  <span className="text-sm text-elegant-stone block mb-1">Starting from</span>
-                  <span className="text-xl text-subtle-gold font-medium">{room.price}</span>
+                  <span className="text-xs text-elegant-stone block">Starting from</span>
+                  <span className="text-lg text-subtle-gold font-semibold">{room.price}</span>
                 </div>
               </div>
-              <p className="text-elegant-stone text-balance leading-relaxed mb-6 font-light">
+              <p className="text-elegant-stone text-sm leading-relaxed mb-4 font-light flex-1">
                 {room.desc}
               </p>
-              <div className="flex flex-wrap gap-4 mb-8">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {room.features.map((feat, j) => (
-                  <span key={j} className="text-xs uppercase tracking-wider text-nature-green border border-nature-green/20 px-3 py-1">
+                  <span key={j} className="text-[11px] uppercase tracking-wider text-nature-green bg-nature-green/5 border border-nature-green/20 px-2.5 py-1 rounded-md">
                     {feat}
                   </span>
                 ))}
               </div>
-              <div className="flex gap-4">
+              <div className="flex gap-3 mt-auto">
                 <Link
                   to={room.path}
-                  className="w-1/2 text-center py-4 border border-dark-surface text-dark-surface uppercase tracking-widest text-sm hover:bg-soft-ivory transition-colors duration-500 magnetic"
+                  className="w-1/2 text-center py-3 border border-dark-surface text-dark-surface uppercase tracking-widest text-xs font-semibold rounded-lg hover:bg-dark-surface hover:text-white transition-colors duration-300"
                 >
                   View Details
                 </Link>
                 <button 
                   onClick={() => redirectToWhatsApp({ Intent: `Book ${room.name}` })}
-                  className="w-1/2 py-4 bg-dark-surface text-white uppercase tracking-widest text-sm hover:bg-nature-green transition-colors duration-500 magnetic"
+                  className="w-1/2 py-3 bg-nature-green text-white uppercase tracking-widest text-xs font-semibold rounded-lg hover:bg-premium-olive transition-colors duration-300"
                 >
                   Book Now
                 </button>
