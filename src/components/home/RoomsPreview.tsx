@@ -66,9 +66,9 @@ export function RoomsPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: i * 0.15 }}
-              className="group flex flex-col bg-soft-ivory/40 p-5 rounded-2xl border border-black/5 shadow-xs hover:shadow-md transition-all duration-300"
+              className="group flex flex-col bg-soft-ivory/50 p-6 border border-black/10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-black/20"
             >
-              <div className="overflow-hidden aspect-[16/10] max-h-[260px] mb-5 relative rounded-xl">
+              <div className="overflow-hidden aspect-[16/10] max-h-[280px] mb-5 relative border border-black/5">
                 <img 
                   src={room.image} 
                   alt={room.name} 
@@ -77,19 +77,19 @@ export function RoomsPreview() {
                 />
                 <div className="absolute inset-0 bg-dark-surface/10 group-hover:bg-transparent transition-colors duration-500" />
               </div>
-              <div className="flex justify-between items-start mb-3">
+              <div className="flex justify-between items-start mb-2">
                 <h3 className="text-2xl font-serif text-dark-surface">{room.name}</h3>
                 <div className="text-right">
                   <span className="text-xs text-elegant-stone block">Starting from</span>
                   <span className="text-lg text-subtle-gold font-semibold">{room.price}</span>
                 </div>
               </div>
-              <p className="text-elegant-stone text-sm leading-relaxed mb-4 font-light flex-1">
+              <p className="text-elegant-stone text-sm leading-relaxed mb-4 font-light">
                 {room.desc}
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
                 {room.features.map((feat, j) => (
-                  <span key={j} className="text-[11px] uppercase tracking-wider text-nature-green bg-nature-green/5 border border-nature-green/20 px-2.5 py-1 rounded-md">
+                  <span key={j} className="text-[11px] uppercase tracking-wider text-nature-green border border-nature-green/20 px-2.5 py-1">
                     {feat}
                   </span>
                 ))}
@@ -97,13 +97,13 @@ export function RoomsPreview() {
               <div className="flex gap-3 mt-auto">
                 <Link
                   to={room.path}
-                  className="w-1/2 text-center py-3 border border-dark-surface text-dark-surface uppercase tracking-widest text-xs font-semibold rounded-lg hover:bg-dark-surface hover:text-white transition-colors duration-300"
+                  className="w-1/2 text-center py-3 border border-dark-surface text-dark-surface uppercase tracking-widest text-xs font-semibold hover:bg-dark-surface hover:text-white transition-colors duration-300"
                 >
                   View Details
                 </Link>
                 <button 
                   onClick={() => redirectToWhatsApp({ Intent: `Book ${room.name}` })}
-                  className="w-1/2 py-3 bg-nature-green text-white uppercase tracking-widest text-xs font-semibold rounded-lg hover:bg-premium-olive transition-colors duration-300"
+                  className="w-1/2 py-3 bg-dark-surface text-white uppercase tracking-widest text-xs font-semibold hover:bg-nature-green transition-colors duration-300"
                 >
                   Book Now
                 </button>

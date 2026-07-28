@@ -58,7 +58,7 @@ export function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="overflow-hidden shadow-xl aspect-[4/5] border border-black/5"
+            className="overflow-hidden shadow-xl aspect-[4/3.5] border border-black/5"
           >
             <img 
               src="https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3053.PNG" 
@@ -68,13 +68,13 @@ export function About() {
             />
           </motion.div>
           
-          {/* Overlapping smaller image shifted left without white frame */}
+          {/* Overlapping smaller image shifted left with background color frame */}
           <motion.div
             initial={{ opacity: 0, x: -20, y: 20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-4 w-7/12 aspect-square overflow-hidden shadow-2xl border border-black/10"
+            className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-4 w-7/12 aspect-square overflow-hidden shadow-2xl border-[6px] border-luxury-white"
           >
             <img 
               src="https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3054.PNG" 
