@@ -13,7 +13,6 @@ import { FloatingMenuCTA } from "./components/layout/FloatingMenuCTA";
 import { Preloader } from "./components/layout/Preloader";
 import { Home } from "./pages/Home";
 import { Stay } from "./pages/Stay";
-import { Events } from "./pages/Events";
 import { Gallery } from "./pages/Gallery";
 import { Experiences } from "./pages/Experiences";
 import { Contact } from "./pages/Contact";
@@ -66,7 +65,6 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/stay" element={<Stay />} />
-            <Route path="/events" element={<Events />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/experiences" element={<Experiences />} />
             <Route path="/contact" element={<Contact />} />

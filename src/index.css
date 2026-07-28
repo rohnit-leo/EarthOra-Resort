@@ -21,7 +21,6 @@ html, body {
   color: #1a1a1a;
   font-family: var(--font-sans);
   scroll-behavior: smooth;
-  cursor: none; /* For custom cursor */
 }
 
 /* Hide scrollbar for clean luxury feel */
@@ -48,9 +47,11 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   color: var(--color-luxury-white);
 }
 
-/* Base styles for interactive elements */
-a, button {
-  cursor: none;
+/* Custom cursor only for desktop pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  html, body, a, button {
+    cursor: none;
+  }
 }
 
 .glass-effect {

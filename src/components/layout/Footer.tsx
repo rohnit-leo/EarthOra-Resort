@@ -31,7 +31,6 @@ export function Footer() {
             <li><Link to="/stay" className="hover:text-white transition-colors">Rooms & Cottages</Link></li>
             <li><Link to="/restaurant" className="hover:text-white transition-colors">Restaurant & Dining</Link></li>
             <li><Link to="/tourism" className="hover:text-white transition-colors">Nearby Tourism</Link></li>
-            <li><Link to="/events" className="hover:text-white transition-colors">Events & Lawn</Link></li>
             <li><Link to="/gallery" className="hover:text-white transition-colors">Gallery</Link></li>
             <li><Link to="/experiences" className="hover:text-white transition-colors">Experiences</Link></li>
             <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>

@@ -55,29 +55,29 @@ export function Restaurant() {
         </Link>
 
         {/* Header Story */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h4 
-            initial={{ opacity: 0, y: 20 }}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <motion.span 
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-nature-green uppercase tracking-widest text-sm font-medium mb-4 flex items-center justify-center gap-2"
+            className="inline-flex items-center gap-2 text-nature-green uppercase tracking-[0.2em] text-xs font-semibold"
           >
-            <UtensilsCrossed size={18} /> The EarthOra Culinary Story
-          </motion.h4>
+            <UtensilsCrossed size={16} /> A Pure Farm-To-Table Journey
+          </motion.span>
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-serif text-dark-surface mb-6"
+            className="text-4xl md:text-6xl font-serif text-dark-surface"
           >
-            Crafted With Passion & Pure Flavors
+            The EarthOra Dining Story
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-elegant-stone text-lg font-light leading-relaxed"
+            className="text-elegant-stone text-base md:text-lg font-light leading-relaxed"
           >
-            Food at EarthOra is a celebration of authenticity. Prepared in our spotless open kitchen using farm-fresh, locally sourced ingredients and time-honored recipes, every dish tells a story of care and rich heritage.
+            At EarthOra, dining is an intimate celebration of nature's bounty. We believe that true food begins with wholesome, soil-grown ingredients, honest traditional recipes, and an open hearth where every step of preparation is visible and celebrated.
           </motion.p>
         </div>
 

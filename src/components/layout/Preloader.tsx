@@ -1,13 +1,31 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
+const CRITICAL_IMAGES = [
+  "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2996.PNG",
+  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3053.PNG",
+  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3054.PNG",
+  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3055.PNG",
+  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3056.PNG",
+  "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/dogs/IMG_2997.JPG.jpeg",
+  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3033.JPG.jpeg",
+  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3068.JPG.jpeg"
+];
+
 export function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Background image preloading
+    CRITICAL_IMAGES.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 1800);
+
     return () => clearTimeout(timer);
   }, []);
 

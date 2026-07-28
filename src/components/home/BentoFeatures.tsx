@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Coffee, Trees, Wind } from "lucide-react";
+import { Sparkles, Trees, Wind } from "lucide-react";
 
 export function BentoFeatures() {
   return (
@@ -32,14 +32,14 @@ export function BentoFeatures() {
             viewport={{ once: true }}
             className="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden relative group"
           >
-            <img src="https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3061.PNG" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Fine Dining" />
+            <img src="https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3061.PNG" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Serene Hillside Haven" />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-surface/90 via-dark-surface/20 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8 text-white">
               <div className="bg-subtle-gold/20 backdrop-blur-md w-12 h-12 flex items-center justify-center rounded-full mb-4 border border-white/20">
-                <Coffee className="text-subtle-gold" size={20} />
+                <Sparkles className="text-subtle-gold" size={20} />
               </div>
-              <h3 className="text-3xl font-serif mb-2">Gourmet Dining</h3>
-              <p className="text-white/80 font-light max-w-sm">Authentic flavors crafted from locally sourced, organic ingredients.</p>
+              <h3 className="text-3xl font-serif mb-2">Serene Hillside Haven</h3>
+              <p className="text-white/80 font-light max-w-md">Experience peaceful cottage living and breathtaking mountain vistas surrounded by untouched nature.</p>
             </div>
           </motion.div>
 

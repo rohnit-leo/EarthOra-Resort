@@ -2,7 +2,6 @@ import { Hero } from "../components/home/Hero";
 import { Marquee } from "../components/home/Marquee";
 import { About } from "../components/home/About";
 import { RoomsPreview } from "../components/home/RoomsPreview";
-import { EventHallPreview } from "../components/home/EventHallPreview";
 import { RestaurantSection } from "../components/home/RestaurantSection";
 import { ParallaxHero } from "../components/home/ParallaxHero";
 import { NearbyAttractions } from "../components/home/NearbyAttractions";
@@ -28,7 +27,6 @@ export function Home() {
       <SeasonalCharm />
       <ParallaxHero />
       <RestaurantSection />
-      <EventHallPreview />
       <ResortAtmosphere />
       <NearbyAttractions />
       <PetsSection />

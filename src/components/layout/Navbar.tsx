@@ -9,7 +9,6 @@ const LINKS = [
   { name: "Stay", path: "/stay" },
   { name: "Restaurant", path: "/restaurant" },
   { name: "Tourism", path: "/tourism" },
-  { name: "Events", path: "/events" },
   { name: "Gallery", path: "/gallery" },
   { name: "Experiences", path: "/experiences" },
   { name: "Contact", path: "/contact" },
@@ -62,13 +61,13 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-5">
             {LINKS.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  "text-sm uppercase tracking-widest font-medium transition-colors hover:text-subtle-gold",
+                  "text-xs uppercase tracking-wider font-semibold transition-colors hover:text-subtle-gold py-1 px-1",
                   isDarkText ? "text-dark-surface" : "text-white/90 hover:text-white"
                 )}
               >

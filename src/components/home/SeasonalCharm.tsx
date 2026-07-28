@@ -32,45 +32,45 @@ export function SeasonalCharm() {
   const [hovered, setHovered] = useState<string>('pool');
 
   return (
-    <section className="py-32 bg-luxury-white px-6 md:px-12">
+    <section className="py-16 md:py-20 bg-luxury-white px-6 md:px-12 border-t border-dark-surface/5">
        <div className="max-w-7xl mx-auto">
-         <div className="text-center mb-16">
+         <div className="text-center mb-8">
             <motion.h4 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-nature-green uppercase tracking-widest text-sm font-medium mb-4"
+              className="text-nature-green uppercase tracking-widest text-xs font-medium mb-2"
             >
               Unmatched Surroundings
             </motion.h4>
             <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-serif text-dark-surface"
+              className="text-3xl md:text-5xl font-serif text-dark-surface"
             >
               EarthOra & Beyond
             </motion.h2>
          </div>
          
-         <div className="flex flex-col md:flex-row gap-4 h-[700px] md:h-[600px]">
+         <div className="flex flex-col md:flex-row gap-3 h-[420px] md:h-[360px]">
            {HIGHLIGHTS.map((item) => (
              <motion.div
                key={item.id}
                onHoverStart={() => setHovered(item.id)}
                onClick={() => setHovered(item.id)}
-               className="relative overflow-hidden rounded-2xl cursor-pointer group flex-1 md:flex-none"
+               className="relative overflow-hidden rounded-xl cursor-pointer group flex-1 md:flex-none border border-black/5 shadow-md"
                animate={{
-                 flex: hovered === item.id ? (typeof window !== 'undefined' && window.innerWidth > 768 ? 3 : 2) : 1
+                 flex: hovered === item.id ? 2.5 : 1
                }}
-               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
              >
-               <img src={item.img} loading="lazy" alt={item.name} className="absolute inset-0 w-full h-full object-cover" />
+               <img src={item.img} loading="lazy" alt={item.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                <div className="absolute inset-0 bg-gradient-to-t from-dark-surface/90 via-dark-surface/20 to-transparent" />
                
-               <div className="absolute bottom-8 left-6 md:left-8 right-6 md:right-8 text-white flex flex-col justify-end h-full">
-                  <h3 className="text-2xl md:text-3xl font-serif whitespace-nowrap mb-2 transform origin-left transition-transform duration-500">
+               <div className="absolute bottom-6 left-5 md:left-6 right-5 md:right-6 text-white flex flex-col justify-end h-full">
+                  <h3 className="text-xl md:text-2xl font-serif mb-1 truncate">
                     {item.name}
                   </h3>
                   
@@ -80,10 +80,10 @@ export function SeasonalCharm() {
                       opacity: hovered === item.id ? 1 : 0,
                       height: hovered === item.id ? 'auto' : 0
                     }}
-                    transition={{ duration: 0.4 }}
+                    transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-white/80 font-light text-sm md:text-base leading-relaxed mt-2 text-wrap">
+                    <p className="text-white/80 font-light text-xs md:text-sm leading-relaxed mt-1 line-clamp-3">
                       {item.desc}
                     </p>
                   </motion.div>
