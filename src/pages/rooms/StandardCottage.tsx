@@ -1,0 +1,326 @@
+import { motion, AnimatePresence } from "motion/react";
+import { Link } from "react-router-dom";
+import { ArrowLeft, Check, Coffee, Wifi, Tv, Bath, Wind, ChevronLeft, ChevronRight, X, Clock, Shield, Map } from "lucide-react";
+import { redirectToWhatsApp } from "../../lib/utils";
+import { getDynamicPrice } from "../../lib/pricing";
+import { useState, useEffect } from "react";
+
+export function StandardCottage() {
+  const basePrice = 2000;
+  const [currentPrice, setCurrentPrice] = useState(basePrice);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  
+  const [bookingForm, setBookingForm] = useState({
+    name: "",
+    phone: "",
+    checkIn: "",
+    checkOut: "",
+    guests: "2",
+    breakfast: "Yes"
+  });
+
+  useEffect(() => {
+    setCurrentPrice(getDynamicPrice(basePrice));
+  }, []);
+
+  const handleBooking = (e: React.FormEvent) => {
+    e.preventDefault();
+    redirectToWhatsApp({
+      Intent: "Book Standard Cottage",
+      Name: bookingForm.name,
+      Phone: bookingForm.phone,
+      "Check In": bookingForm.checkIn,
+      "Check Out": bookingForm.checkOut,
+      Guests: bookingForm.guests,
+      "Include Breakfast": bookingForm.breakfast
+    });
+  };
+
+  const images = [
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2948.JPG%20%281%29.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2935.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2939.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2944.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2948.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2951.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2954.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2955.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2956.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2964.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2967.JPG%20%281%29.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2970.JPG%20%281%29.jpeg"
+  ];
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % images.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex - 1 + images.length) % images.length);
+    }
+  };
+
+  const [mainImageIndex, setMainImageIndex] = useState(0);
+
+  const handleNextMain = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setMainImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const handlePrevMain = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setMainImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="pt-32 pb-20 bg-luxury-white min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <Link to="/" className="inline-flex items-center gap-2 text-nature-green hover:text-subtle-gold transition-colors mb-12 uppercase tracking-widest text-xs font-medium">
+          <ArrowLeft size={16} /> Back to Home
+        </Link>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-7 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="aspect-[4/3] overflow-hidden cursor-pointer group relative rounded-xl"
+              onClick={() => setSelectedImageIndex(mainImageIndex)}
+            >
+              <img src={images[mainImageIndex]} alt="Standard Cottage" className="w-full h-full object-cover transition-transform duration-700" loading="lazy" />
+              <div className="absolute inset-0 bg-black/10 transition-colors" />
+              
+              <button 
+                onClick={handlePrevMain}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white text-white hover:text-dark-surface p-2 md:p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 backdrop-blur-md"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button 
+                onClick={handleNextMain}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white text-white hover:text-dark-surface p-2 md:p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 backdrop-blur-md"
+              >
+                <ChevronRight size={24} />
+              </button>
+
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 text-white z-0 pointer-events-none">
+                <span className="uppercase tracking-[0.2em] text-xs font-medium border border-white/50 px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm">View Fullscreen</span>
+              </div>
+            </motion.div>
+            <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
+              {images.slice(0, 8).map((img, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 + (i * 0.05) }}
+                  className={`aspect-square overflow-hidden cursor-pointer group relative rounded-lg ${i >= 6 ? 'hidden md:block' : ''} ${mainImageIndex === i ? 'ring-2 ring-subtle-gold ring-offset-2' : ''}`}
+                  onClick={() => setMainImageIndex(i)}
+                >
+                  <img src={img} alt={`Standard Cottage ${i+1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="pt-12 space-y-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-serif text-dark-surface mb-6">About This Cottage</h3>
+                <p className="text-elegant-stone leading-relaxed font-light text-lg">
+                  Designed for a peaceful retreat, our Standard Cottages offer a harmonious blend of comfort and natural beauty. Wake up to the serene sounds of nature and beautiful valley views. The perfect cozy getaway for couples and solo travelers looking for an authentic eco-stay.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-serif text-dark-surface mb-6 border-b border-elegant-stone/20 pb-4">Room Amenities</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                  <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
+                    <Wifi size={24} className="text-subtle-gold"/>
+                    <span className="text-sm font-medium text-dark-surface">Free High-Speed WiFi</span>
+                  </div>
+                  <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
+                    <Coffee size={24} className="text-subtle-gold"/>
+                    <span className="text-sm font-medium text-dark-surface">Tea/Coffee Maker</span>
+                  </div>
+                  <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
+                    <Tv size={24} className="text-subtle-gold"/>
+                    <span className="text-sm font-medium text-dark-surface">Flat-screen TV</span>
+                  </div>
+                  <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
+                    <Bath size={24} className="text-subtle-gold"/>
+                    <span className="text-sm font-medium text-dark-surface">En-suite Bathroom</span>
+                  </div>
+                  <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
+                    <Check size={24} className="text-subtle-gold"/>
+                    <span className="text-sm font-medium text-dark-surface">Queen Size Bed</span>
+                  </div>
+                  <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
+                    <Wind size={24} className="text-subtle-gold"/>
+                    <span className="text-sm font-medium text-dark-surface">Valley View</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-serif text-dark-surface mb-6 border-b border-elegant-stone/20 pb-4">House Rules & Info</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-4">
+                    <Clock size={20} className="text-nature-green shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-medium text-dark-surface">Check-in / Check-out</h4>
+                      <p className="text-elegant-stone text-sm font-light">Check-in after 2:00 PM. Check-out before 11:00 AM.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Shield size={20} className="text-nature-green shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-medium text-dark-surface">Cancellation Policy</h4>
+                      <p className="text-elegant-stone text-sm font-light">Free cancellation up to 7 days before arrival. 50% refund within 7 days.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Map size={20} className="text-nature-green shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-medium text-dark-surface">Location & Accessibility</h4>
+                      <p className="text-elegant-stone text-sm font-light">Accessible via standard pathway. Short walk to the main reception and dining area.</p>
+                    </div>
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="sticky top-32 space-y-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <h1 className="text-4xl md:text-5xl font-serif text-dark-surface mb-2">Standard Cottage</h1>
+                <div className="flex items-end gap-3 mb-6">
+                  <p className="text-4xl text-nature-green font-medium">₹{currentPrice.toLocaleString('en-IN')}</p>
+                  <span className="text-sm text-elegant-stone font-light mb-1">/ night</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-white p-6 md:p-8 border border-elegant-stone/20 shadow-2xl rounded-xl"
+              >
+                <h3 className="text-xl font-serif text-dark-surface mb-6">Reserve Your Stay</h3>
+                
+                <form onSubmit={handleBooking} className="space-y-5">
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-[0.2em] text-elegant-stone mb-2 font-medium">Full Name</label>
+                    <input required type="text" value={bookingForm.name} onChange={e => setBookingForm({...bookingForm, name: e.target.value})} className="w-full bg-soft-ivory border-none px-4 py-3 text-dark-surface focus:ring-1 focus:ring-subtle-gold outline-none text-sm transition-shadow" placeholder="John Doe" />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-[0.2em] text-elegant-stone mb-2 font-medium">Phone Number</label>
+                    <input required type="tel" value={bookingForm.phone} onChange={e => setBookingForm({...bookingForm, phone: e.target.value})} className="w-full bg-soft-ivory border-none px-4 py-3 text-dark-surface focus:ring-1 focus:ring-subtle-gold outline-none text-sm transition-shadow" placeholder="+91 98765 43210" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-[10px] uppercase tracking-[0.2em] text-elegant-stone mb-2 font-medium">Check In</label>
+                      <input required type="date" value={bookingForm.checkIn} onChange={e => setBookingForm({...bookingForm, checkIn: e.target.value})} className="w-full bg-soft-ivory border-none px-4 py-3 text-dark-surface focus:ring-1 focus:ring-subtle-gold outline-none text-sm transition-shadow" />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] uppercase tracking-[0.2em] text-elegant-stone mb-2 font-medium">Check Out</label>
+                      <input required type="date" value={bookingForm.checkOut} onChange={e => setBookingForm({...bookingForm, checkOut: e.target.value})} className="w-full bg-soft-ivory border-none px-4 py-3 text-dark-surface focus:ring-1 focus:ring-subtle-gold outline-none text-sm transition-shadow" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-[10px] uppercase tracking-[0.2em] text-elegant-stone mb-2 font-medium">Guests</label>
+                      <select value={bookingForm.guests} onChange={e => setBookingForm({...bookingForm, guests: e.target.value})} className="w-full bg-soft-ivory border-none px-4 py-3 text-dark-surface focus:ring-1 focus:ring-subtle-gold outline-none text-sm cursor-pointer transition-shadow">
+                        <option>1 Adult</option>
+                        <option>2 Adults</option>
+                        <option>3 Adults</option>
+                        <option>4 Adults</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-[10px] uppercase tracking-[0.2em] text-elegant-stone mb-2 font-medium">Add Breakfast (+₹500)</label>
+                      <select value={bookingForm.breakfast} onChange={e => setBookingForm({...bookingForm, breakfast: e.target.value})} className="w-full bg-soft-ivory border-none px-4 py-3 text-dark-surface focus:ring-1 focus:ring-subtle-gold outline-none text-sm cursor-pointer transition-shadow">
+                        <option>Yes</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <button type="submit" className="w-full bg-nature-green text-white py-4 uppercase tracking-[0.2em] text-xs font-medium hover:bg-premium-olive transition-all duration-300 shadow-xl hover:shadow-nature-green/30 mt-6">
+                    Book via WhatsApp
+                  </button>
+                </form>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {selectedImageIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImageIndex(null)}
+            className="fixed inset-0 z-[100] bg-dark-surface/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12"
+          >
+            <button 
+              onClick={(e) => { e.stopPropagation(); setSelectedImageIndex(null); }} 
+              className="absolute top-6 right-6 text-white hover:text-subtle-gold p-2 z-50 transition-colors"
+            >
+              <X size={32} />
+            </button>
+            
+            <button 
+              onClick={handlePrev}
+              className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 text-white hover:text-subtle-gold p-4 z-50 transition-colors"
+            >
+              <ChevronLeft size={48} />
+            </button>
+
+            <img 
+              src={images[selectedImageIndex]} 
+              alt="Fullscreen View" 
+              className="max-w-full max-h-full object-contain shadow-2xl rounded-sm"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            <button 
+              onClick={handleNext}
+              className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 text-white hover:text-subtle-gold p-4 z-50 transition-colors"
+            >
+              <ChevronRight size={48} />
+            </button>
+
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 tracking-widest text-sm">
+              {selectedImageIndex + 1} / {images.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}

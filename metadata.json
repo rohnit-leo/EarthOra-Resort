@@ -1,0 +1,6 @@
+{
+  "name": "EarthOra Resort",
+  "description": "Premium luxury resort near Kaas Plateau, Satara.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
