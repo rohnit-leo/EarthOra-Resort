@@ -14,8 +14,17 @@ export const DEFAULT_ROOMS = {
     images: [
       "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2948.JPG%20%281%29.jpeg",
       "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2935.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2937.JPG.jpeg",
       "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2939.JPG.jpeg",
-      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2944.JPG.jpeg"
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2944.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2948.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2951.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2954.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2955.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2956.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2964.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2967.JPG%20%281%29.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2970.JPG%20%281%29.jpeg"
     ]
   },
   premium: {
@@ -33,7 +42,16 @@ export const DEFAULT_ROOMS = {
     images: [
       "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2883.JPG.jpeg",
       "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2888.JPG.jpeg",
-      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2907.JPG.jpeg"
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2907.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2911.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2914.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2917.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2918.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2921.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2922.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2928.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2967.JPG.jpeg",
+      "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2970.JPG.jpeg"
     ]
   }
 };

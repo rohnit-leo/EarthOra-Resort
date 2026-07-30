@@ -43,8 +43,17 @@ export function StandardCottage() {
   const images = (roomData.images && roomData.images.length > 0) ? roomData.images : [
     "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2948.JPG%20%281%29.jpeg",
     "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2935.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2937.JPG.jpeg",
     "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2939.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2944.JPG.jpeg"
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2944.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2948.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2951.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2954.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2955.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2956.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2964.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2967.JPG%20%281%29.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2970.JPG%20%281%29.jpeg"
   ];
 
   const handleNext = (e: React.MouseEvent) => {
@@ -109,20 +118,28 @@ export function StandardCottage() {
                 <span className="uppercase tracking-[0.2em] text-xs font-medium border border-white/50 px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm">View Fullscreen</span>
               </div>
             </motion.div>
-            <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
-              {images.slice(0, 8).map((img, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 + (i * 0.05) }}
-                  className={`aspect-square overflow-hidden cursor-pointer group relative rounded-lg ${i >= 6 ? 'hidden md:block' : ''} ${mainImageIndex === i ? 'ring-2 ring-subtle-gold ring-offset-2' : ''}`}
-                  onClick={() => setMainImageIndex(i)}
-                >
-                  <img src={img} alt={`Standard Cottage ${i+1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-                </motion.div>
-              ))}
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {images.map((img, i) => {
+                const isBathroom = i >= images.length - 2;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 + (i * 0.03) }}
+                    className={`aspect-square overflow-hidden cursor-pointer group relative rounded-lg border border-elegant-stone/15 ${mainImageIndex === i ? 'ring-2 ring-subtle-gold ring-offset-2' : ''}`}
+                    onClick={() => setMainImageIndex(i)}
+                  >
+                    <img src={img} alt={isBathroom ? `En-suite Bathroom View ${i - (images.length - 3)}` : `Standard Cottage View ${i+1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors" />
+                    {isBathroom && (
+                      <span className="absolute bottom-1 left-1 right-1 bg-dark-surface/85 text-subtle-gold text-[9px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded text-center backdrop-blur-xs">
+                        Bathroom
+                      </span>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
 
             <div className="pt-12 space-y-16">
@@ -133,8 +150,59 @@ export function StandardCottage() {
               >
                 <h3 className="text-2xl font-serif text-dark-surface mb-6">About This Cottage</h3>
                 <p className="text-elegant-stone leading-relaxed font-light text-lg">
-                  Designed for a peaceful retreat, our Standard Cottages offer a harmonious blend of comfort and natural beauty. Wake up to the serene sounds of nature and beautiful valley views. The perfect cozy getaway for couples and solo travelers looking for an authentic eco-stay.
+                  Designed for a peaceful retreat, our Standard Eco Cottages offer a harmonious blend of sustainable comfort and raw natural beauty. Wake up to the serene mountain mist, birdsong, and beautiful valley views. The perfect cozy getaway for couples and solo travelers looking for an authentic eco-stay amidst Kaas Plateau's untamed landscapes.
                 </p>
+              </motion.div>
+
+              {/* Added Section: Cottage Highlights & Architecture */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-soft-ivory/60 p-8 rounded-2xl border border-elegant-stone/15"
+              >
+                <h3 className="text-2xl font-serif text-dark-surface mb-6">Cottage Features & Architecture</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-nature-green/10 text-nature-green flex items-center justify-center shrink-0">
+                      <Wind size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-lg text-dark-surface mb-1">Eco-Conscious Design</h4>
+                      <p className="text-sm font-light text-elegant-stone leading-relaxed">Built with natural, local stone and sustainable timber to maintain naturally cool indoor temperatures year-round.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-subtle-gold/10 text-subtle-gold flex items-center justify-center shrink-0">
+                      <Coffee size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-lg text-dark-surface mb-1">Private Veranda</h4>
+                      <p className="text-sm font-light text-elegant-stone leading-relaxed">Step out onto your private veranda for morning filter coffee surrounded by lush flora and misty valley breezes.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-nature-green/10 text-nature-green flex items-center justify-center shrink-0">
+                      <Bath size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-lg text-dark-surface mb-1">En-Suite Private Washroom</h4>
+                      <p className="text-sm font-light text-elegant-stone leading-relaxed">Featuring modern ceramic fixtures, high-pressure hot solar showers, and complimentary organic toiletries.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-subtle-gold/10 text-subtle-gold flex items-center justify-center shrink-0">
+                      <Shield size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-lg text-dark-surface mb-1">Peaceful Privacy</h4>
+                      <p className="text-sm font-light text-elegant-stone leading-relaxed">Thoughtfully positioned with ample distance between cottages to ensure complete sanctuary and quietude.</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -150,11 +218,11 @@ export function StandardCottage() {
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Coffee size={24} className="text-subtle-gold"/>
-                    <span className="text-sm font-medium text-dark-surface">Tea/Coffee Maker</span>
+                    <span className="text-sm font-medium text-dark-surface">Tea/Coffee Station</span>
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Tv size={24} className="text-subtle-gold"/>
-                    <span className="text-sm font-medium text-dark-surface">Flat-screen TV</span>
+                    <span className="text-sm font-medium text-dark-surface">Flat-screen Entertainment</span>
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Bath size={24} className="text-subtle-gold"/>
@@ -162,13 +230,41 @@ export function StandardCottage() {
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Check size={24} className="text-subtle-gold"/>
-                    <span className="text-sm font-medium text-dark-surface">Queen Size Bed</span>
+                    <span className="text-sm font-medium text-dark-surface">Queen Comfort Bed</span>
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Wind size={24} className="text-subtle-gold"/>
-                    <span className="text-sm font-medium text-dark-surface">Valley View</span>
+                    <span className="text-sm font-medium text-dark-surface">Serene Valley View</span>
                   </div>
                 </div>
+              </motion.div>
+
+              {/* Added Section: Complimentary Inclusions */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="border-t border-elegant-stone/20 pt-10"
+              >
+                <h3 className="text-2xl font-serif text-dark-surface mb-6">Complimentary Guest Inclusions</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-elegant-stone">
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-subtle-gold" />
+                    <span>Daily hot breakfast prepared live at our garden kitchen</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-subtle-gold" />
+                    <span>Guided Kaas Plateau sunrise trail maps & guidance</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-subtle-gold" />
+                    <span>Evening bonfire & stargazing terrace access</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-subtle-gold" />
+                    <span>Free secure parking & 24/7 guest assistance</span>
+                  </li>
+                </ul>
               </motion.div>
 
               <motion.div

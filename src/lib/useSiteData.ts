@@ -19,7 +19,20 @@ export function useRooms() {
       if (!snapshot.empty) {
         const roomData: any = { ...DEFAULT_ROOMS };
         snapshot.docs.forEach((docSnap) => {
-          roomData[docSnap.id] = { id: docSnap.id, ...docSnap.data() };
+          const data = docSnap.data();
+          const defaultRoom = (DEFAULT_ROOMS as any)[docSnap.id];
+          
+          // Check if images are stale/incomplete and update with defaults if needed
+          if (defaultRoom && Array.isArray(defaultRoom.images)) {
+            const currentImgs = Array.isArray(data.images) ? data.images : [];
+            const isMissingNewImages = defaultRoom.images.some((img: string) => !currentImgs.includes(img));
+            if (isMissingNewImages || currentImgs.length < defaultRoom.images.length) {
+              data.images = [...defaultRoom.images];
+              setDoc(doc(db, "rooms", docSnap.id), data, { merge: true }).catch(() => {});
+            }
+          }
+
+          roomData[docSnap.id] = { id: docSnap.id, ...data };
         });
         setRooms(roomData);
       } else {
@@ -38,6 +51,12 @@ export function useRooms() {
   }, []);
 
   return { rooms, loading };
+}
+
+export async function resetRoomsToDefault() {
+  for (const [key, val] of Object.entries(DEFAULT_ROOMS)) {
+    await setDoc(doc(db, "rooms", key), val);
+  }
 }
 
 export async function saveRoomData(roomId: string, data: any) {

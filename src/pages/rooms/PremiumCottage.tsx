@@ -43,7 +43,16 @@ export function PremiumCottage() {
   const images = (roomData.images && roomData.images.length > 0) ? roomData.images : [
     "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2883.JPG.jpeg",
     "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2888.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2907.JPG.jpeg"
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2907.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2911.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2914.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2917.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2918.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2921.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2922.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2928.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2967.JPG.jpeg",
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2970.JPG.jpeg"
   ];
 
   const handleNext = (e: React.MouseEvent) => {
@@ -112,20 +121,28 @@ export function PremiumCottage() {
               </div>
             </motion.div>
             
-            <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
-              {images.slice(0, 8).map((img, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 + (i * 0.05) }}
-                  className={`aspect-square overflow-hidden cursor-pointer group relative rounded-lg ${i >= 6 ? 'hidden md:block' : ''} ${mainImageIndex === i ? 'ring-2 ring-subtle-gold ring-offset-2' : ''}`}
-                  onClick={() => setMainImageIndex(i)}
-                >
-                  <img src={img} alt={`Premium Cottage ${i+1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-                </motion.div>
-              ))}
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {images.map((img, i) => {
+                const isBathroom = i >= images.length - 2;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 + (i * 0.03) }}
+                    className={`aspect-square overflow-hidden cursor-pointer group relative rounded-lg border border-elegant-stone/15 ${mainImageIndex === i ? 'ring-2 ring-subtle-gold ring-offset-2' : ''}`}
+                    onClick={() => setMainImageIndex(i)}
+                  >
+                    <img src={img} alt={isBathroom ? `En-suite Bathroom View ${i - (images.length - 3)}` : `Premium Cottage View ${i+1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors" />
+                    {isBathroom && (
+                      <span className="absolute bottom-1 left-1 right-1 bg-dark-surface/85 text-subtle-gold text-[9px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded text-center backdrop-blur-xs">
+                        Bathroom
+                      </span>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
             
             <div className="pt-12 space-y-16">
@@ -136,8 +153,59 @@ export function PremiumCottage() {
               >
                 <h3 className="text-2xl font-serif text-dark-surface mb-6">About This Cottage</h3>
                 <p className="text-elegant-stone leading-relaxed font-light text-lg">
-                  Our most luxurious offering, the Premium Cottage features expansive space, upgraded amenities, and unparalleled comfort. Complete with beautiful valley views to soak in, it's the ultimate EarthOra experience. Crafted with sustainable materials, it seamlessly blends indoor luxury with the untamed beauty of the Kaas Plateau.
+                  Our most luxurious offering, the Premium Valley View Cottage features expansive space, upgraded handcrafted amenities, and unparalleled panoramic comfort. Complete with breathtaking, unobstructed views of the Kaas valley to soak in, it is the ultimate EarthOra experience. Crafted with natural sustainable timber and stone, it seamlessly blends high luxury with the untamed wilderness.
                 </p>
+              </motion.div>
+
+              {/* Added Section: Suite Highlights & Architecture */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-soft-ivory/60 p-8 rounded-2xl border border-elegant-stone/15"
+              >
+                <h3 className="text-2xl font-serif text-dark-surface mb-6">Premium Suite Architecture & Features</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-subtle-gold/10 text-subtle-gold flex items-center justify-center shrink-0">
+                      <Wind size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-lg text-dark-surface mb-1">Panoramic Sunset Sun Deck</h4>
+                      <p className="text-sm font-light text-elegant-stone leading-relaxed">Expansive elevated deck overlooking the cascading hills of Kaas, featuring plush lounge seating for private sunsets.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-nature-green/10 text-nature-green flex items-center justify-center shrink-0">
+                      <Check size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-lg text-dark-surface mb-1">King Luxury Bedding</h4>
+                      <p className="text-sm font-light text-elegant-stone leading-relaxed">Deep orthopaedic king mattress dressed in 400-thread-count Egyptian cotton linens and hypoallergenic plush pillows.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-subtle-gold/10 text-subtle-gold flex items-center justify-center shrink-0">
+                      <Bath size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-lg text-dark-surface mb-1">Spacious En-Suite Bathroom</h4>
+                      <p className="text-sm font-light text-elegant-stone leading-relaxed">Spacious modern bathroom featuring rainwater head hot showers, designer vanity mirrors, and premium herbal bath products.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-nature-green/10 text-nature-green flex items-center justify-center shrink-0">
+                      <Shield size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-lg text-dark-surface mb-1">Unmatched Seclusion</h4>
+                      <p className="text-sm font-light text-elegant-stone leading-relaxed">Positioned at the highest elevation point of EarthOra Resort for maximum privacy and uninterrupted valley vistas.</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -149,11 +217,11 @@ export function PremiumCottage() {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Wind size={24} className="text-subtle-gold"/>
-                    <span className="text-sm font-medium text-dark-surface">Private Balcony</span>
+                    <span className="text-sm font-medium text-dark-surface">Private Sun Deck Balcony</span>
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Bath size={24} className="text-subtle-gold"/>
-                    <span className="text-sm font-medium text-dark-surface">Premium Toiletries</span>
+                    <span className="text-sm font-medium text-dark-surface">Luxury Toiletries Kit</span>
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Wifi size={24} className="text-subtle-gold"/>
@@ -161,17 +229,45 @@ export function PremiumCottage() {
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Coffee size={24} className="text-subtle-gold"/>
-                    <span className="text-sm font-medium text-dark-surface">Gourmet Coffee</span>
+                    <span className="text-sm font-medium text-dark-surface">Gourmet Artisan Coffee</span>
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Check size={24} className="text-subtle-gold"/>
-                    <span className="text-sm font-medium text-dark-surface">King Size Bed</span>
+                    <span className="text-sm font-medium text-dark-surface">King Size Comfort Bed</span>
                   </div>
                   <div className="flex flex-col gap-2 p-4 bg-soft-ivory rounded-lg items-center text-center hover:shadow-lg transition-shadow">
                     <Tv size={24} className="text-subtle-gold"/>
-                    <span className="text-sm font-medium text-dark-surface">Smart TV</span>
+                    <span className="text-sm font-medium text-dark-surface">4K Smart TV & Streaming</span>
                   </div>
                 </div>
+              </motion.div>
+
+              {/* Added Section: Exclusive Premium Guest Inclusions */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="border-t border-elegant-stone/20 pt-10"
+              >
+                <h3 className="text-2xl font-serif text-dark-surface mb-6">Exclusive Premium Inclusions</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-elegant-stone">
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-subtle-gold" />
+                    <span>Complimentary gourmet breakfast served at your private deck or live kitchen</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-subtle-gold" />
+                    <span>Priority seating & complimentary tea at the evening campfire terrace</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-subtle-gold" />
+                    <span>Personalized concierge assistance & local excursion planning</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-subtle-gold" />
+                    <span>Welcome refreshment basket upon check-in</span>
+                  </li>
+                </ul>
               </motion.div>
 
               <motion.div
