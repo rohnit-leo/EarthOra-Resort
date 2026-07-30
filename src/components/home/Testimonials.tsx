@@ -15,7 +15,7 @@ const REVIEWS = [
   {
     name: "Vikram Desai",
     date: "2 months ago",
-    text: "Loved the hospitality. The staff is very polite and helpful. My kids loved playing with Simba and Bruno in the wide lawns. Will visit again!",
+    text: "Loved the hospitality. The staff is very polite and helpful. My kids loved playing with Don and Ora in the wide lawns. Will visit again!",
   },
   {
     name: "Dr. Ananya Kulkarni",

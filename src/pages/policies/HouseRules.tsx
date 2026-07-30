@@ -35,7 +35,7 @@ export function HouseRules() {
           <section className="space-y-3">
             <h2 className="text-xl font-serif text-dark-surface">2. Pet Policy & Resident Dogs</h2>
             <p>
-              We are a pet-friendly resort! Guests bringing pets are asked to keep them leashed in common dining spaces. Please note our friendly resident dogs (Simba & Bruno) roam the property safely and welcome guests warmly.
+              We are a pet-friendly resort! Guests bringing pets are asked to keep them leashed in common dining spaces. Please note our friendly resident dogs (Don & Ora) roam the property safely and welcome guests warmly.
             </p>
           </section>
 

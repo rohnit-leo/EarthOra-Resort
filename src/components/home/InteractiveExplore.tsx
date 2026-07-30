@@ -11,8 +11,8 @@ export function InteractiveExplore() {
 
   const cards = [
     { title: "Premium Living", desc: "Experience our signature eco-luxury cottages.", img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3055.PNG" },
-    { title: "Single Luxury Cottage", desc: "A cozy private sanctuary nestled amid serene mountain greenery.", img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3056.PNG" },
     { title: "Cottages Sideview & Lawns", desc: "Picturesque side views of our cottage row bordering open lawns.", img: "https://frevuykpcqueimke.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-30%20at%2011.21.42%20AM.jpeg" },
+    { title: "Single Luxury Cottage", desc: "A cozy private sanctuary nestled amid serene mountain greenery.", img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3056.PNG" },
     { title: "Eco Cottage Sanctuary", desc: "Private cottages nestled amidst lush green lawns and fresh mountain breeze.", img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/resort/IMG_3063.PNG" }
   ];
 

@@ -5,15 +5,15 @@ const BOTH_DOGS_IMAGE = "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com
 
 const PETS = [
   {
-    name: "Simba",
+    name: "Don",
     breed: "Golden Retriever",
     desc: "Our joyful Golden Retriever loves to welcome guests with a wagging tail. He is wonderful with families and loves playing fetch on the resort lawns.",
     image: "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/dogs/IMG_2994.JPG.jpeg",
   },
   {
-    name: "Bruno",
+    name: "Ora",
     breed: "Labrador Retriever",
-    desc: "The gentle, observant host of EarthOra. Bruno is calm, loving, and always ready for a peaceful stroll around the gardens at sunset.",
+    desc: "The gentle, observant host of EarthOra. Ora is calm, loving, and always ready for a peaceful stroll around the gardens at sunset.",
     image: "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/dogs/IMG_2999.JPG.jpeg",
   }
 ];
@@ -38,7 +38,7 @@ export function PetsSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-serif text-dark-surface mb-4"
           >
-            Meet Simba & Bruno
+            Meet Don & Ora
           </motion.h2>
           <p className="text-elegant-stone font-light text-base md:text-lg">
             EarthOra is a proudly pet-friendly sanctuary where nature and companions connect.
@@ -60,14 +60,14 @@ export function PetsSection() {
               <div className="w-full rounded-2xl overflow-hidden bg-dark-surface/5 flex items-center justify-center min-h-[350px] md:min-h-[420px]">
                 <img 
                   src={BOTH_DOGS_IMAGE} 
-                  alt="Simba and Bruno together at EarthOra Resort" 
+                  alt="Don and Ora together at EarthOra Resort" 
                   loading="lazy"
                   className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-inner"
                 />
               </div>
               <div className="mt-4 flex items-center justify-between px-2">
                 <div>
-                  <h4 className="font-serif text-lg text-dark-surface">Simba & Bruno</h4>
+                  <h4 className="font-serif text-lg text-dark-surface">Don & Ora</h4>
                   <p className="text-xs text-elegant-stone">EarthOra Estate Greeting Team</p>
                 </div>
                 <span className="bg-nature-green/10 text-nature-green text-xs font-medium px-3 py-1 rounded-full border border-nature-green/20">
@@ -88,7 +88,7 @@ export function PetsSection() {
             <div className="bg-luxury-white p-8 rounded-3xl border border-elegant-stone/15 shadow-sm space-y-4">
               <h3 className="text-2xl font-serif text-dark-surface">Warm Hospitality For Pets & Guests</h3>
               <p className="text-elegant-stone text-sm md:text-base leading-relaxed font-light">
-                Whether you are traveling with your own pets or looking forward to friendly dog tail-wags on morning walks, Simba and Bruno bring instant warmth and cozy energy to your holiday.
+                Whether you are traveling with your own pets or looking forward to friendly dog tail-wags on morning walks, Don and Ora bring instant warmth and cozy energy to your holiday.
               </p>
               
               <div className="grid grid-cols-2 gap-4 pt-2">

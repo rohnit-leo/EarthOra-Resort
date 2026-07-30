@@ -45,6 +45,10 @@ export function SEO({
     setMetaTag("property", "og:title", title);
     setMetaTag("property", "og:description", description);
     setMetaTag("property", "og:image", ogImage);
+    setMetaTag("property", "og:image:secure_url", ogImage);
+    setMetaTag("property", "og:image:type", "image/png");
+    setMetaTag("property", "og:image:width", "1200");
+    setMetaTag("property", "og:image:height", "630");
     setMetaTag("property", "og:url", canonicalUrl);
     setMetaTag("property", "og:type", "website");
     setMetaTag("property", "og:site_name", "EarthOra Resort");
