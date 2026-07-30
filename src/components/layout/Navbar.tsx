@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { cn, redirectToWhatsApp } from "../../lib/utils";
+import { cn } from "../../lib/utils";
+import { BookingModal } from "../common/BookingModal";
 
 const LINKS = [
   { name: "Home", path: "/" },
@@ -17,8 +18,8 @@ const LINKS = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const location = useLocation();
-  const isScrolledDown = isScrolled;
   const isDarkText = true; // Hero is now light, so text should always be dark
 
   useEffect(() => {
@@ -35,12 +36,6 @@ export function Navbar() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  const handleBookNow = () => {
-    redirectToWhatsApp({
-      Intent: "I want to book a stay",
-    });
-  };
-
   return (
     <>
       <header
@@ -52,10 +47,10 @@ export function Navbar() {
         )}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <img src="https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2996.PNG" alt="EarthOra Resort Logo" className="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-sm origin-left" />
+          <Link to="/" className="flex items-center gap-2 sm:gap-3">
+            <img src="https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2996.PNG" alt="EarthOra Resort Logo" className="w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 object-contain drop-shadow-sm origin-left" />
             <span className={cn(
-              "text-2xl md:text-3xl font-serif tracking-wide hidden sm:block transition-colors",
+              "text-2xl sm:text-3xl md:text-4xl font-serif tracking-wide transition-colors",
               isDarkText ? "text-dark-surface" : "text-white"
             )}>
               EarthOra<span className="text-subtle-gold">.</span>
@@ -80,9 +75,9 @@ export function Navbar() {
 
           <div className="hidden md:block">
             <button
-              onClick={handleBookNow}
+              onClick={() => setIsBookingOpen(true)}
               className={cn(
-                "px-8 py-3 text-sm tracking-widest uppercase transition-all duration-300 shadow-md",
+                "px-8 py-3 text-xs tracking-widest uppercase font-semibold transition-all duration-300 shadow-md rounded-lg",
                 isScrolled
                   ? "bg-nature-green text-white hover:bg-premium-olive"
                   : "bg-dark-surface text-white hover:bg-nature-green"
@@ -137,10 +132,10 @@ export function Navbar() {
               ))}
             </nav>
             
-            <div className="p-12">
+            <div className="p-[10%] sm:p-12">
               <button
-                onClick={handleBookNow}
-                className="w-full py-4 bg-nature-green text-white uppercase tracking-widest"
+                onClick={() => { setIsOpen(false); setIsBookingOpen(true); }}
+                className="w-full py-4 bg-nature-green text-white uppercase tracking-widest text-xs font-semibold rounded-xl"
               >
                 Book Your Stay
               </button>
@@ -148,6 +143,8 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </>
   );
 }

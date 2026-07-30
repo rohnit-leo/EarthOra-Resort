@@ -40,11 +40,10 @@ export function Footer() {
         <div className="space-y-6">
           <h4 className="text-lg font-serif text-white uppercase tracking-widest text-sm">Legal & Policies</h4>
           <ul className="space-y-3 text-sm text-elegant-stone">
-            <li><Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-            <li><Link to="/" className="hover:text-white transition-colors">Cancellation Policy</Link></li>
-            <li><Link to="/" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
-            <li><Link to="/" className="hover:text-white transition-colors">Refund Policy</Link></li>
-            <li><Link to="/" className="hover:text-white transition-colors">Accessibility</Link></li>
+            <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
+            <li><Link to="/cancellation" className="hover:text-white transition-colors">Cancellation & Refund Policy</Link></li>
+            <li><Link to="/rules" className="hover:text-white transition-colors">House Rules & Guidelines</Link></li>
           </ul>
         </div>
 

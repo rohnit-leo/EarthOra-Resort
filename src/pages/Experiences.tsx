@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Coffee, Trees, Sunset, Utensils, Music, MapPin, X, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { SEO } from "../components/common/SEO";
 
 const GALLERY_IMAGES = [
   "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/exp/IMG_3012.JPG.jpeg",
@@ -84,6 +85,11 @@ export function Experiences() {
 
   return (
     <div className="pt-32 pb-20 bg-luxury-white min-h-screen">
+      <SEO 
+        title="Resort Experiences & Activities | EarthOra Resort Satara"
+        description="Discover guest experiences at EarthOra Resort: bonfire evenings, open-air events, nature walks near Kaas Plateau, and friendly resident dogs."
+        canonicalUrl="https://www.earthoraresort.in/experiences"
+      />
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <div className="text-center mb-20">
           <motion.h4 

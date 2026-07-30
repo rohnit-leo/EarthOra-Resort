@@ -58,7 +58,7 @@ export function ExperiencesSection() {
             transition={{ duration: 0.8 }}
             className="md:col-span-6 lg:col-span-5 h-full rounded-2xl overflow-hidden group relative"
           >
-            <img src={IMAGES[0]} alt="Experience 1" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+            <img src={IMAGES[0]} alt="Experience 1" className="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 group-hover:scale-105" loading="lazy" />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
           </motion.div>
 

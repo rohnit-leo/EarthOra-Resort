@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Compass, Sparkles, X, Trees, Mountain, ShieldCheck, Sun, Camera } from "lucide-react";
+import { ArrowLeft, MapPin, Compass, Sparkles, X, Camera } from "lucide-react";
 import { useState } from "react";
 import { redirectToWhatsApp } from "../lib/utils";
+import { SEO } from "../components/common/SEO";
 
 const SECTIONS = [
   {
@@ -12,8 +13,8 @@ const SECTIONS = [
     distance: "15 mins from EarthOra",
     tagline: "A World Heritage Biodiversity Hotspot",
     desc: [
-      "Kaas Plateau, popularly known as the 'Kaas Pathar', is a geological wonder located in the Western Ghats of Maharashtra. Recognized as a UNESCO World Heritage site, this volcanic plateau comes alive following the monsoon season (August to October) when millions of wild flowers bloom simultaneously.",
-      "Over 850 species of flowering plants thrive here, including insectivorous plants like Drosera, rare orchids, and endemic wild balsams that paint the plateau in vivid hues of purple, yellow, pink, and white. Walking along the designated ecological pathways surrounded by gentle mountain breezes is a magical experience for nature enthusiasts, photographers, and families alike."
+      "Kaas Plateau, popularly known as 'Kaas Pathar', is a geological wonder located in the Western Ghats of Maharashtra. Recognized as a UNESCO World Heritage site, this volcanic plateau comes alive following the monsoon season (August to October) when millions of wild flowers bloom simultaneously.",
+      "Over 850 species of flowering plants thrive here, including insectivorous plants like Drosera, rare orchids, and endemic wild balsams that paint the plateau in vivid hues of purple, yellow, pink, and white."
     ],
     highlights: ["UNESCO Natural World Heritage Site", "850+ Species of Wild Blooming Plants", "Protected Ecological Sanctuary", "Guided Flora Trails Available"],
     images: [
@@ -24,6 +25,74 @@ const SECTIONS = [
     ]
   },
   {
+    id: "tapola",
+    title: "Tapola (Mini Kashmir of Maharashtra)",
+    subtitle: "Koyna Backwaters & Water Sports",
+    distance: "45 mins from EarthOra",
+    tagline: "Pristine Lakes, Speed Boating & Kayaking",
+    desc: [
+      "Tapola, fondly called the 'Mini Kashmir of Maharashtra', is a picturesque lakeside paradise situated at the confluence of the Koyna and Solshi rivers. Framed by thick Sahyadri mountain ridges and the expansive Koyna Dam reservoir, Tapola offers calm backwaters perfect for boating, water sports, and tranquil lakeside walks.",
+      "Guests can enjoy exhilarating motorboat cruises, speed boats, swimming in designated zones, or relaxing by riverside cafes with magnificent views of misty green hills."
+    ],
+    highlights: ["Koyna Dam Backwater Cruise", "Speed Boating & Kayaking", "Riverside Dining & Scenic Stays", "Mini Kashmir Scenic Atmosphere"],
+    images: [
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/Explore%20Tapola%20Pune_%20Nature%2C%20Lake%20Views%2C%20and%20Relaxing%20Resort%20Stays.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/Mini%20Kashmir%20of%20Maharashtra%2CTapola%E2%9B%B0%EF%B8%8F%F0%9F%A4%8D.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/best%20riverside%20hotel%20in%20tapola.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/download%20%287%29.jpg"
+    ]
+  },
+  {
+    id: "vasota",
+    title: "Vasota Fort (Wilderness Jungle Trek)",
+    subtitle: "Ancient Hill Fort & Sanctuary",
+    distance: "40 mins + Boat Ride",
+    tagline: "Koyna Wildlife Sanctuary Jungle Trek",
+    desc: [
+      "Vasota Fort (Vyasagad) is one of Maharashtra's most celebrated wilderness treks located inside the protected Koyna Wildlife Sanctuary. The journey begins with a mesmerizing boat ride across Shivsagar Lake backwaters, leading to the dense jungle base point.",
+      "The hike weaves through towering evergreen forest canopy, offering wildlife encounters with giant squirrels and hornbills before rewarding trekkers with dramatic cliffhead views overlooking the backwaters."
+    ],
+    highlights: ["Backwater Boat Access", "Dense Jungle Sanctuary Trail", "Historical Fort Citadel & Cliff Views", "Exciting Nature Exploration"],
+    images: [
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/Vasota%20jungle%20trek%2C%20Satara%20_%20Top%20of%20Vasota%20jungle.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/vasota%20jungle%2C%20Satara%2C%20Maharashtra.jpg"
+    ]
+  },
+  {
+    id: "yavateshwar",
+    title: "Yavateshwar Temple",
+    subtitle: "Spiritual Hilltop Shrine",
+    distance: "20 mins from EarthOra",
+    tagline: "Hemadpanthi Architecture & Valley Vistas",
+    desc: [
+      "Perched gracefully on Yavateshwar hill on the highway toward Kaas Plateau, this ancient Lord Shiva temple is a sacred sanctuary steeped in history and quiet spirituality. Built in classic Hemadpanthi stone architecture, it features intricate stone carvings and ancient sacred idols.",
+      "The temple plateau offers breathtaking panoramic sunrise and sunset vantage points overlooking Satara city and the surrounding valley folds."
+    ],
+    highlights: ["Ancient Hemadpanthi Architecture", "Panoramas of Satara Valley", "Peaceful Sunrise Point", "Sacred Shiva Shrine"],
+    images: [
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/3-74.jpeg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/yavateshwar-temple-are-satara-temples-7UbBwQceQC.avif"
+    ]
+  },
+  {
+    id: "ajinkyatara",
+    title: "Ajinkyatara Fort",
+    subtitle: "Citadel of Satara",
+    distance: "30 mins from EarthOra",
+    tagline: "3,300ft Altitude Maratha Bastion",
+    desc: [
+      "Rising 3,300 feet above sea level, Ajinkyatara Fort is the historic Maratha citadel that stands guard over Satara city. Meaning 'The Invincible Star', this fort carries deep historical legacy as a royal Maratha stronghold.",
+      "Visitors can explore well-preserved stone bastions, ancient water cisterns, and enjoy refreshing high-altitude breezes alongside full 360-degree views across Satara and surrounding mountain peaks."
+    ],
+    highlights: ["360° Panoramic Mountain Vistas", "Historic Maratha Stone Citadel", "Easily Accessible Hilltop Road", "Ideal Sunset Spot"],
+    images: [
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/Ajinkya%20tara%20fort.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/Devgiri%20fort%20Aurangabad.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/The%20Pride%20of%20Satara%20%E2%80%93%20Ajinkyatara%20Fort%20_%20Maharashtra%20Tourism.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/lohgad%2C%20lonavala.jpg"
+    ]
+  },
+  {
     id: "safari",
     title: "Wilderness Jungle Safari",
     subtitle: "Untamed Nature Trails",
@@ -31,7 +100,7 @@ const SECTIONS = [
     tagline: "Thick Forests & Wildlife Spotting",
     desc: [
       "Situated virtually right next door to EarthOra Resort, the forest trails and protected jungle corridor offer guided safari rides and refreshing nature treks. Immerse yourself in oxygen-rich forest mist, towering teak and bamboo thickets, and melodic birdsong.",
-      "Morning safaris provide a fantastic opportunity to spot local wildlife including barking deer, Indian bison (Gaur), giant squirrels, peacocks, and a rich variety of migratory birds. Our resort desk can seamlessly book your open-top vehicle safari slot."
+      "Morning safaris provide a fantastic opportunity to spot local wildlife including barking deer, Indian bison (Gaur), giant squirrels, peacocks, and a rich variety of migratory birds."
     ],
     highlights: ["Open-Top Vehicle Safaris", "Dense Teak & Bamboo Canopy", "Bird Watching & Wildlife Spotting", "Safe Guided Forest Walks"],
     images: [
@@ -43,35 +112,16 @@ const SECTIONS = [
     id: "waterfalls",
     title: "Vajrai & Thoseghar Waterfalls",
     subtitle: "Roaring Natural Waterfalls",
-    distance: "20-30 mins from EarthOra",
+    distance: "25 mins from EarthOra",
     tagline: "India's Highest Cascades & Emerald Valleys",
     desc: [
-      "Feel the invigorating spray and thunderous roar of Vajrai Waterfall — one of India's tallest tiered waterfalls plunging down 560 meters along steep green cliffs. Nearby, Thoseghar Waterfalls features a breathtaking series of waterfalls ranging from gentle streams to massive 200-meter drops into deep forested gorges.",
-      "Equipped with safe viewing platforms, paved walking paths, and cozy local tea stalls, these waterfalls offer an ideal half-day trip for resort guests looking to witness the raw power and beauty of monsoon waters."
+      "Feel the invigorating spray and thunderous roar of Vajrai Waterfall — one of India's tallest tiered waterfalls plunging down 560 meters along steep green cliffs. Nearby, Thoseghar Waterfalls features a breathtaking series of waterfalls ranging from gentle streams to massive 200-meter drops into deep forested gorges."
     ],
     highlights: ["560m Plunge at Vajrai Falls", "Secured Viewing Platforms", "Mist-Covered Gorge Vistas", "Lush Monsoon Landscapes"],
     images: [
       "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3098.JPG.jpeg",
       "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3099.JPG.jpeg",
       "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3100.JPG.jpeg"
-    ]
-  },
-  {
-    id: "valleys",
-    title: "Cinematic Valleys & Mountain Drives",
-    subtitle: "Scenic Ghat Roadways",
-    distance: "At Your Doorstep",
-    tagline: "Breathtaking Overlooks & Winding Passes",
-    desc: [
-      "The high-altitude plateau roads encircling EarthOra present unmatched panoramic vistas across the Sahyadri range. Winding ghat roads cut through misty mountain tops, passing emerald backwaters, quiet village settlements, and scenic edge points.",
-      "Whether you take a slow sunset drive, pause for hot local chai at a mountain view point, or capture stunning landscape photography, the roads around EarthOra offer pure peace and breathtaking beauty."
-    ],
-    highlights: ["Panoramic Sahyadri Overlooks", "Smooth Scenic Mountain Drives", "Golden Hour Sunset Overlooks", "Ideal for Nature Photography"],
-    images: [
-      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/IMG_3083.JPG.jpeg",
-      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/IMG_3084.JPG.jpeg",
-      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/IMG_3085.JPG.jpeg",
-      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/IMG_3086.JPG.jpeg"
     ]
   }
 ];
@@ -81,6 +131,12 @@ export function Tourism() {
 
   return (
     <div className="pt-28 pb-24 bg-luxury-white min-h-screen">
+      <SEO 
+        title="Regional Tourism Guide | Places to Visit Near Kaas Plateau, Satara"
+        description="Explore top tourist attractions near EarthOra Resort: UNESCO Kaas Plateau, Tapola Mini Kashmir, Vasota Fort jungle trek, Yavateshwar Temple, Ajinkyatara Fort, and Vajrai Waterfalls."
+        canonicalUrl="https://www.earthoraresort.in/tourism"
+      />
+
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Link to="/" className="inline-flex items-center gap-2 text-nature-green hover:text-subtle-gold transition-colors mb-10 uppercase tracking-widest text-xs font-semibold">
           <ArrowLeft size={16} /> Back to Home
@@ -109,12 +165,12 @@ export function Tourism() {
             transition={{ delay: 0.2 }}
             className="text-elegant-stone text-base md:text-lg font-light leading-relaxed"
           >
-            Nestled high in the Western Ghats, EarthOra Resort serves as your luxurious gateway to UNESCO World Heritage natural wonders, pristine jungle safaris, thunderous waterfalls, and serene mountain drives.
+            Nestled high in the Western Ghats, EarthOra Resort serves as your luxurious gateway to UNESCO World Heritage natural wonders, Tapola backwaters, historic Maratha forts, sacred temples, and thunderous waterfalls.
           </motion.p>
         </div>
 
         {/* Story Sections */}
-        <div className="space-y-28">
+        <div className="space-y-20">
           {SECTIONS.map((sec, idx) => (
             <motion.div
               key={sec.id}
@@ -122,7 +178,7 @@ export function Tourism() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8 }}
-              className="bg-soft-ivory/60 rounded-3xl p-8 md:p-12 border border-black/5 shadow-sm space-y-10"
+              className="bg-soft-ivory/80 rounded-3xl p-8 md:p-12 border border-black/5 shadow-sm space-y-8"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 
@@ -167,7 +223,7 @@ export function Tourism() {
                   </div>
                 </div>
 
-                {/* Gallery Grid Column - Balanced & No Holes */}
+                {/* Gallery Grid Column */}
                 <div className={`lg:col-span-6 ${idx % 2 !== 0 ? 'lg:order-1' : ''}`}>
                   <div className={`grid gap-4 ${sec.images.length === 2 ? 'grid-cols-2' : 'grid-cols-2'}`}>
                     {sec.images.map((img, i) => (

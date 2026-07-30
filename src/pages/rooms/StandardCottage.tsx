@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Check, Coffee, Wifi, Tv, Bath, Wind, ChevronLeft, ChevronRight, X, Clock, Shield, Map } from "lucide-react";
 import { redirectToWhatsApp } from "../../lib/utils";
 import { getDynamicPrice } from "../../lib/pricing";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export function StandardCottage() {
   const basePrice = 2000;

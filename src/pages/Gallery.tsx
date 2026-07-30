@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { X } from "lucide-react";
+import { SEO } from "../components/common/SEO";
 
 export function Gallery() {
   const images = [
@@ -25,6 +26,11 @@ export function Gallery() {
 
   return (
     <div className="pt-32 pb-20 bg-luxury-white min-h-screen">
+      <SEO 
+        title="Resort Photo Gallery | EarthOra Resort Kaas Plateau"
+        description="View photo gallery of EarthOra Resort near Kaas Plateau, Satara. High-resolution images of cottages, open-kitchen dining, lawns, and natural surroundings."
+        canonicalUrl="https://www.earthoraresort.in/gallery"
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
           <motion.h4 

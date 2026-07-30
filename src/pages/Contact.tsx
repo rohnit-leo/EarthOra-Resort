@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { redirectToWhatsApp } from "../lib/utils";
-import { useState } from "react";
+import React, { useState } from "react";
+import { SEO } from "../components/common/SEO";
 
 export function Contact() {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
@@ -18,6 +19,11 @@ export function Contact() {
 
   return (
     <div className="pt-32 pb-20 bg-luxury-white min-h-screen">
+      <SEO 
+        title="Contact Us & Reservations | EarthOra Resort Satara"
+        description="Contact EarthOra Resort near Kaas Plateau, Satara. Call +91 88888 88162 or send a message via WhatsApp for cottage bookings, event hall inquiries, and directions."
+        canonicalUrl="https://www.earthoraresort.in/contact"
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
           <motion.h4 

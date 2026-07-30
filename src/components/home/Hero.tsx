@@ -1,9 +1,11 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useState, useRef } from "react";
 import { ArrowDownRight, Calendar, Users, MapPin, Compass } from "lucide-react";
+import { BookingModal } from "../common/BookingModal";
 
 export function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -161,8 +163,11 @@ export function Hero() {
                      <div className="text-xs font-medium text-dark-surface">Couples & Family</div>
                   </div>
                </div>
-               <button className="w-full mt-2 bg-dark-surface text-white py-3 rounded-xl text-xs uppercase tracking-[0.1em] font-medium hover:bg-nature-green transition-colors">
-                 Check Availability
+               <button 
+                onClick={() => setIsBookingOpen(true)}
+                className="w-full mt-2 bg-dark-surface text-white py-3.5 rounded-xl text-xs uppercase tracking-[0.15em] font-semibold hover:bg-nature-green transition-colors shadow-md"
+              >
+                 Book Now
                </button>
             </motion.div>
 
@@ -199,6 +204,8 @@ export function Hero() {
           <span className="text-4xl md:text-8xl font-serif text-dark-surface px-8">·</span>
         </motion.div>
       </div>
+
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </section>
   );
 }

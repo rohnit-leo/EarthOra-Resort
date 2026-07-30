@@ -1,33 +1,31 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Clock, MapPin, Phone, Flame, UtensilsCrossed, Sparkles, X, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { redirectToWhatsApp } from "../lib/utils";
 
-const KITCHEN_HERO = "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3033.JPG.jpeg";
+const KITCHEN_HERO = "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/20%20Basic%20Cooking%20Tips%20Everyone%20Should%20Know%2C%20According%20to%20a%20Pro%20Chef.jpg";
 
 const KITCHEN_STORY = [
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3035.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3037.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3039.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3041.JPG.jpeg"
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/LightBox%20-%20India%20Palace.jpg",
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/Sophisticated%20Food%20Photography%20by%20Natalie%20Chaban%20_%20Capturing%20Gourmet%20Dishes.jpg",
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/download%20%284%29.jpg",
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/download%20%285%29.jpg"
 ];
 
 const FOOD_GALLERY = [
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/download%20%286%29.jpg",
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/LightBox%20-%20India%20Palace.jpg",
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/Sophisticated%20Food%20Photography%20by%20Natalie%20Chaban%20_%20Capturing%20Gourmet%20Dishes.jpg",
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/20%20Basic%20Cooking%20Tips%20Everyone%20Should%20Know%2C%20According%20to%20a%20Pro%20Chef.jpg",
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/download%20%284%29.jpg",
+  "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/download%20%285%29.jpg",
   "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3068.JPG.jpeg",
   "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3069.JPG.jpeg",
   "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3070.JPG.jpeg",
   "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3072.JPG.jpeg",
   "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3073.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3074.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3075.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3076.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3077.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3078.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3079.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3080.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3081.JPG.jpeg",
-  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3082.JPG.jpeg"
+  "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3074.JPG.jpeg"
 ];
 
 export function Restaurant() {

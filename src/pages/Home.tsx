@@ -13,10 +13,16 @@ import { SeasonalCharm } from "../components/home/SeasonalCharm";
 import { BentoFeatures } from "../components/home/BentoFeatures";
 import { ExperiencesSection } from "../components/home/ExperiencesSection";
 import { ResortAtmosphere } from "../components/home/ResortAtmosphere";
+import { SEO } from "../components/common/SEO";
 
 export function Home() {
   return (
     <div className="w-full overflow-hidden">
+      <SEO 
+        title="EarthOra Resort | Luxury Eco Sanctuary Near Kaas Plateau, Satara"
+        description="Official Website of EarthOra Resort near UNESCO World Heritage Kaas Plateau, Satara. Luxury eco cottages, live open kitchen dining, serene valley views, and nature safaris."
+        canonicalUrl="https://www.earthoraresort.in/"
+      />
       <Hero />
       <Marquee />
       <About />

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export function RestaurantSection() {
   return (
-    <section className="py-28 md:py-32 bg-dark-surface text-luxury-white overflow-hidden relative border-t-2 border-subtle-gold/20 shadow-2xl">
+    <section className="py-28 md:py-32 bg-dark-surface text-luxury-white overflow-hidden relative border-t-0 shadow-2xl">
       {/* Glow effects */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-subtle-gold/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-nature-green/10 rounded-full blur-[140px] pointer-events-none" />
@@ -95,36 +95,36 @@ export function RestaurantSection() {
           {/* Base Image 1 - Large Backing */}
           <div className="absolute top-0 left-0 w-3/4 h-3/4 rounded-3xl overflow-hidden border border-white/15 shadow-2xl group">
             <img 
-              src="https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3033.JPG.jpeg" 
+              src="https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/20%20Basic%20Cooking%20Tips%20Everyone%20Should%20Know%2C%20According%20to%20a%20Pro%20Chef.jpg" 
               alt="Live Open Kitchen" 
               loading="lazy"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-surface via-dark-surface/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-surface via-dark-surface/30 to-transparent" />
             <span className="absolute bottom-4 left-6 text-xs text-subtle-gold uppercase tracking-widest font-medium">Live Kitchen View</span>
           </div>
 
           {/* Overlapping Image 2 - Bottom Right */}
           <div className="absolute bottom-0 right-0 w-2/3 h-2/3 rounded-3xl overflow-hidden border border-white/20 shadow-2xl group z-20">
             <img 
-              src="https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/restaurant%20page%20/IMG_3068.JPG.jpeg" 
+              src="https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/LightBox%20-%20India%20Palace.jpg" 
               alt="Authentic Plated Dish" 
               loading="lazy"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-65"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-85"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-surface via-dark-surface/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-surface via-dark-surface/40 to-transparent" />
             <span className="absolute bottom-4 left-6 text-xs text-subtle-gold uppercase tracking-widest font-medium">Local Flavors</span>
           </div>
 
           {/* Small Floating Accent Image 3 - Top Right */}
           <div className="absolute top-6 right-4 w-1/3 h-1/3 rounded-2xl overflow-hidden border border-subtle-gold/30 shadow-2xl z-30 hidden sm:block">
             <img 
-              src="https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3082.JPG%20%281%29.jpeg" 
+              src="https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/Sophisticated%20Food%20Photography%20by%20Natalie%20Chaban%20_%20Capturing%20Gourmet%20Dishes.jpg" 
               alt="Restaurant Dining Ambiance" 
               loading="lazy"
-              className="w-full h-full object-cover opacity-80"
+              className="w-full h-full object-cover opacity-90"
             />
-            <div className="absolute inset-0 bg-dark-surface/30" />
+            <div className="absolute inset-0 bg-dark-surface/20" />
           </div>
 
         </motion.div>

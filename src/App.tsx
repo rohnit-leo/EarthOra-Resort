@@ -20,6 +20,10 @@ import { StandardCottage } from "./pages/rooms/StandardCottage";
 import { PremiumCottage } from "./pages/rooms/PremiumCottage";
 import { Restaurant } from "./pages/Restaurant";
 import { Tourism } from "./pages/Tourism";
+import { PrivacyPolicy } from "./pages/policies/PrivacyPolicy";
+import { TermsConditions } from "./pages/policies/TermsConditions";
+import { CancellationPolicy } from "./pages/policies/CancellationPolicy";
+import { HouseRules } from "./pages/policies/HouseRules";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -72,6 +76,10 @@ export default function App() {
             <Route path="/room/premium" element={<PremiumCottage />} />
             <Route path="/restaurant" element={<Restaurant />} />
             <Route path="/tourism" element={<Tourism />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsConditions />} />
+            <Route path="/cancellation" element={<CancellationPolicy />} />
+            <Route path="/rules" element={<HouseRules />} />
           </Routes>
         </main>
         <Footer />

@@ -2,9 +2,11 @@ import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, Menu, X, Calendar, Info, Phone } from "lucide-react";
 import { useState } from "react";
 import { redirectToWhatsApp } from "../../lib/utils";
+import { BookingModal } from "../common/BookingModal";
 
 export function FloatingMenuCTA() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
     <div className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[90] flex flex-col items-end gap-3">
@@ -20,7 +22,7 @@ export function FloatingMenuCTA() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => redirectToWhatsApp({ Intent: "Book a Room" })}
+              onClick={() => { setIsOpen(false); setIsBookingOpen(true); }}
               className="flex items-center justify-between gap-4 bg-dark-surface text-white px-5 py-3 rounded-full shadow-xl border border-subtle-gold/30 hover:border-subtle-gold transition-colors"
             >
               <span className="text-sm uppercase tracking-widest font-medium">Book Stay</span>
@@ -76,6 +78,8 @@ export function FloatingMenuCTA() {
           {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
         </motion.div>
       </motion.button>
+
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </div>
   );
 }

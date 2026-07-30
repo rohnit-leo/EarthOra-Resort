@@ -10,28 +10,40 @@ const ATTRACTIONS = [
     img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3090.JPG%20%281%29.jpeg" 
   },
   { 
-    name: "Jungle Safari Trails", 
-    time: "5 Mins Away", 
-    desc: "Exhibiting raw wilderness, ancient woods, and wildlife safaris located right next to the resort.", 
-    img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3101.JPG.jpeg" 
+    name: "Tapola (Mini Kashmir)", 
+    time: "45 Mins Away", 
+    desc: "Tranquil Koyna backwaters, speed boating, water sports & emerald lakeside hills.", 
+    img: "https://frevuykpcqueimke.public.blob.vercel-storage.com/Mini%20Kashmir%20of%20Maharashtra%2CTapola%E2%9B%B0%EF%B8%8F%F0%9F%A4%8D.jpg" 
+  },
+  { 
+    name: "Vasota Fort Trek", 
+    time: "40 Mins Away", 
+    desc: "Thrilling jungle trek through Koyna Wildlife Sanctuary reached via backwater boat ride.", 
+    img: "https://frevuykpcqueimke.public.blob.vercel-storage.com/Vasota%20jungle%20trek%2C%20Satara%20_%20Top%20of%20Vasota%20jungle.jpg" 
+  },
+  { 
+    name: "Yavateshwar Temple", 
+    time: "20 Mins Away", 
+    desc: "Ancient Hemadpanthi Shiva temple on hill peak offering sweeping valley sunrise views.", 
+    img: "https://frevuykpcqueimke.public.blob.vercel-storage.com/3-74.jpeg" 
+  },
+  { 
+    name: "Ajinkyatara Fort", 
+    time: "30 Mins Away", 
+    desc: "Historic Maratha bastion at 3,300ft elevation commanding panoramic 360° Satara vistas.", 
+    img: "https://frevuykpcqueimke.public.blob.vercel-storage.com/Ajinkya%20tara%20fort.jpg" 
   },
   { 
     name: "Vajrai & Thoseghar Falls", 
-    time: "20 Mins Away", 
+    time: "25 Mins Away", 
     desc: "Dramatic, high cascading waterfalls tumbling down lush green valley cliffs into pristine pools.", 
     img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3098.JPG.jpeg" 
-  },
-  { 
-    name: "Cinematic Valleys & Drives", 
-    time: "At Your Doorstep", 
-    desc: "Breathtaking winding mountain roads and misty scenic valley overlooks perfect for drives.", 
-    img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/IMG_3083.JPG.jpeg" 
   },
 ];
 
 export function NearbyAttractions() {
   return (
-    <section className="py-32 bg-soft-ivory relative overflow-hidden">
+    <section className="py-28 bg-soft-ivory relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
@@ -39,7 +51,7 @@ export function NearbyAttractions() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-nature-green uppercase tracking-widest text-xs font-medium mb-4 flex items-center gap-2"
+              className="text-nature-green uppercase tracking-widest text-xs font-medium mb-3 flex items-center gap-2"
             >
               <Compass size={16} /> Regional Wonders
             </motion.h4>
@@ -61,7 +73,7 @@ export function NearbyAttractions() {
           >
             <Link 
               to="/tourism"
-              className="inline-flex items-center gap-3 bg-dark-surface text-white px-8 py-4 rounded-xl uppercase tracking-widest text-xs font-medium hover:bg-nature-green transition-all shadow-md group"
+              className="inline-flex items-center gap-3 bg-dark-surface text-white px-8 py-4 rounded-xl uppercase tracking-widest text-xs font-semibold hover:bg-nature-green transition-all shadow-md group"
             >
               Explore Full Tourism Story
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -69,7 +81,7 @@ export function NearbyAttractions() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ATTRACTIONS.map((place, i) => (
             <motion.div
               key={place.name}
@@ -77,7 +89,7 @@ export function NearbyAttractions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden shadow-lg h-[420px] flex flex-col justify-end p-8 border border-elegant-stone/10"
+              className="group relative rounded-2xl overflow-hidden shadow-md h-[380px] flex flex-col justify-end p-8 border border-elegant-stone/10"
             >
               <img 
                 src={place.img} 
@@ -88,7 +100,7 @@ export function NearbyAttractions() {
               <div className="absolute inset-0 bg-gradient-to-t from-dark-surface/95 via-dark-surface/40 to-transparent" />
               
               <div className="relative z-10 text-white">
-                <div className="flex items-center gap-2 text-subtle-gold text-xs uppercase tracking-widest mb-3 font-medium">
+                <div className="flex items-center gap-2 text-subtle-gold text-xs uppercase tracking-widest mb-2 font-semibold">
                   <MapPin size={14} />
                   <span>{place.time}</span>
                 </div>

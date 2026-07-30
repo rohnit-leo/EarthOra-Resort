@@ -2,10 +2,16 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { RoomsPreview } from "../components/home/RoomsPreview";
 import { ParallaxHero } from "../components/home/ParallaxHero";
+import { SEO } from "../components/common/SEO";
 
 export function Stay() {
   return (
     <div className="min-h-screen bg-luxury-white">
+      <SEO 
+        title="Luxury Cottages & Stay | EarthOra Resort Satara"
+        description="Explore luxury eco cottages and family suites at EarthOra Resort near Kaas Plateau, Satara. Private decks, modern amenities, and peaceful nature views."
+        canonicalUrl="https://www.earthoraresort.in/stay"
+      />
       <section className="pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
