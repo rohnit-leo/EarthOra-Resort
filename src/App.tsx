@@ -4,8 +4,28 @@
  */
 
 import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Lenis from "lenis";
+
+function HashAdminHandler() {
+  const { pathname, hash } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkHash = () => {
+      const currentHash = window.location.hash;
+      if (currentHash === "#admin" || currentHash === "#/admin" || hash === "#admin") {
+        navigate("/admin", { replace: true });
+      }
+    };
+
+    checkHash();
+    window.addEventListener("hashchange", checkHash);
+    return () => window.removeEventListener("hashchange", checkHash);
+  }, [pathname, hash, navigate]);
+
+  return null;
+}
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { CustomCursor } from "./components/layout/CustomCursor";
@@ -61,6 +81,7 @@ export default function App() {
 
   return (
     <Router>
+      <HashAdminHandler />
       <ScrollToTop />
       <Preloader />
       <div className="min-h-screen bg-luxury-white flex flex-col relative selection:bg-nature-green selection:text-white">

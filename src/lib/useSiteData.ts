@@ -120,6 +120,30 @@ export function useTourism() {
     const unsub = onSnapshot(collection(db, "tourism"), (snapshot) => {
       if (!snapshot.empty) {
         const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() })) as any[];
+        
+        // Auto sanitize and enforce accurate specific images per spot
+        list.forEach(item => {
+          const defaultItem = DEFAULT_TOURISM.find(d => d.id === item.id);
+          if (defaultItem) {
+            const validDefaultImages = defaultItem.images;
+            const currentImages = Array.isArray(item.images) ? item.images : [];
+            
+            // Check if current images are missing any default images or contain bad/cross-pollinated images
+            const isMissingDefaultImages = validDefaultImages.some(img => !currentImages.includes(img));
+            const hasInvalidImage = currentImages.some((img: string) => {
+              if (typeof img !== 'string') return true;
+              if (img.toLowerCase().includes('restaurant') || img.toLowerCase().includes('cooking')) return true;
+              if (item.id !== 'kaas' && (img.includes('IMG_3090') || img.includes('IMG_3093'))) return true;
+              return false;
+            });
+
+            if (isMissingDefaultImages || hasInvalidImage || currentImages.length === 0) {
+              item.images = [...validDefaultImages];
+              setDoc(doc(db, "tourism", item.id), item).catch(() => {});
+            }
+          }
+        });
+
         // Check if any default items are missing and seed them
         const existingIds = new Set(list.map(i => i.id));
         DEFAULT_TOURISM.forEach(defaultItem => {
@@ -128,6 +152,7 @@ export function useTourism() {
             list.push(defaultItem);
           }
         });
+
         setTourismList(list);
       } else {
         DEFAULT_TOURISM.forEach((item) => {
@@ -142,6 +167,12 @@ export function useTourism() {
   }, []);
 
   return { tourismList, loading };
+}
+
+export async function resetTourismToDefault() {
+  for (const item of DEFAULT_TOURISM) {
+    await setDoc(doc(db, "tourism", item.id), item);
+  }
 }
 
 export async function saveTourismPlace(item: any) {

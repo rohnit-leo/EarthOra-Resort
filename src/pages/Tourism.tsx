@@ -111,12 +111,14 @@ export function Tourism() {
                 {/* Gallery Grid Column */}
                 <div className={`lg:col-span-6 ${idx % 2 !== 0 ? 'lg:order-1' : ''}`}>
                   {sec.images && sec.images.length > 0 && (
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className={sec.images.length === 1 ? "grid grid-cols-1 gap-4" : "grid grid-cols-2 gap-4"}>
                       {sec.images.map((img: string, i: number) => (
                         <div 
                           key={i}
                           onClick={() => setModalImage(img)}
-                          className="relative rounded-2xl overflow-hidden cursor-pointer group border border-black/10 shadow-md aspect-[4/3] bg-dark-surface/5"
+                          className={`relative rounded-2xl overflow-hidden cursor-pointer group border border-black/10 shadow-md bg-dark-surface/5 ${
+                            sec.images.length === 1 ? "aspect-[16/10]" : "aspect-[4/3]"
+                          }`}
                         >
                           <img 
                             src={img} 
@@ -144,7 +146,7 @@ export function Tourism() {
             <span className="text-subtle-gold uppercase tracking-[0.2em] text-xs font-semibold block">Resort Concierge Service</span>
             <h3 className="text-3xl md:text-4xl font-serif">Plan Your Sightseeing Excursion</h3>
             <p className="text-white/80 font-light text-sm md:text-base leading-relaxed">
-              Our travel helpdesk can organize private vehicles, local nature guides, jungle safari bookings, and customized itineraries during your stay at EarthOra.
+              Our travel helpdesk can organize private vehicles, local nature guides, sightseeing tours, and customized itineraries during your stay at EarthOra.
             </p>
             <button
               onClick={() => redirectToWhatsApp({ Intent: "Sightseeing and Excursion Assistance" })}

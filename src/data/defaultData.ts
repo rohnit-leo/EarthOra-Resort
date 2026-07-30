@@ -96,13 +96,48 @@ export const DEFAULT_TOURISM = [
     subtitle: "The Valley of Flowers",
     distance: "15 mins from EarthOra",
     desc: [
-      "Kaas Plateau, popularly known as 'Kaas Pathar', is a UNESCO Natural World Heritage Site located in the Western Ghats of Satara. Following the monsoon season, over 850 species of wild flowering plants bloom simultaneously, painting the volcanic plateau in vibrant carpets of purple, yellow, and blue.",
+      "Kaas Plateau, popularly known as 'Kaas Pathar', is a UNESCO Natural World Heritage Site located in the Western Ghats of Satara. Following the monsoon season, over 850 species of wild flowering plants bloom simultaneously, painting the volcanic plateau in vibrant carpets.",
       "Recognized for its immense ecological significance, the plateau is home to rare orchids, endemic wild balsams, and carnivorous Drosera plants."
     ],
     highlights: ["UNESCO Natural World Heritage Site", "850+ Wild Flowering Species", "Guided Botanical Trails", "15 Mins Drive from EarthOra"],
     images: [
       "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3090.JPG%20%281%29.jpeg",
-      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3093.JPG%20%281%29.jpeg"
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3093.JPG%20%281%29.jpeg",
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3094.JPG%20%281%29.jpeg",
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3095.JPG%20%281%29.jpeg",
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3096.JPG%20%281%29.jpeg"
+    ]
+  },
+  {
+    id: "jungle_safari",
+    title: "Jungle Safari",
+    subtitle: "Wild Nature Experience Just 5 Mins Away",
+    distance: "5 mins from EarthOra",
+    desc: [
+      "Located within just 5 minutes from EarthOra Resort, experience an authentic eco-jungle safari through lush forest trails and pristine wilderness.",
+      "Explore rich regional biodiversity, natural flora, and tranquil forest pathways guided by local nature experts."
+    ],
+    highlights: ["Just 5 Mins from EarthOra", "Rich Forest Biodiversity", "Guided Wilderness Trails", "Authentic Eco Experience"],
+    images: [
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3101.JPG.jpeg",
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3102.JPG.jpeg"
+    ]
+  },
+  {
+    id: "valleys",
+    title: "Cinematic Valleys & Scenic Drive",
+    subtitle: "Breathtaking Mountain Passes & Valley Views",
+    distance: "Surrounding EarthOra",
+    desc: [
+      "Drive along serene, mist-covered mountain passes and scenic plateau roads right surrounding Kaas and EarthOra Resort.",
+      "Marvel at panoramic valley vistas, lush green mountain slopes, and cinematic viewpoints perfect for photography and relaxing drives."
+    ],
+    highlights: ["Panoramic Valley Vistas", "Mist-Covered Scenic Drive", "Photography Hotspots", "Instant Access from Resort"],
+    images: [
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/IMG_3083.JPG.jpeg",
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/IMG_3084.JPG.jpeg",
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/IMG_3085.JPG.jpeg",
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/IMG_3086.JPG.jpeg"
     ]
   },
   {
@@ -117,7 +152,9 @@ export const DEFAULT_TOURISM = [
     highlights: ["Koyna Dam Backwater Cruise", "Speed Boating & Kayaking", "Riverside Dining", "Mini Kashmir Atmosphere"],
     images: [
       "https://frevuykpcqueimke.public.blob.vercel-storage.com/Explore%20Tapola%20Pune_%20Nature%2C%20Lake%20Views%2C%20and%20Relaxing%20Resort%20Stays.jpg",
-      "https://frevuykpcqueimke.public.blob.vercel-storage.com/Mini%20Kashmir%20of%20Maharashtra%2CTapola%E2%9B%B0%EF%B8%8F%F0%9F%A4%8D.jpg"
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/Mini%20Kashmir%20of%20Maharashtra%2CTapola%E2%9B%B0%EF%B8%8F%F0%9F%A4%8D.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/best%20riverside%20hotel%20in%20tapola.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/download%20%287%29.jpg"
     ]
   },
   {
@@ -132,7 +169,7 @@ export const DEFAULT_TOURISM = [
     highlights: ["Wilderness Jungle Trek", "Koyna Wildlife Sanctuary", "Scenic Backwater Boat Ride", "Panoramics of Nageshwar Cliff"],
     images: [
       "https://frevuykpcqueimke.public.blob.vercel-storage.com/Vasota%20jungle%20trek%2C%20Satara%20_%20Top%20of%20Vasota%20jungle.jpg",
-      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3090.JPG%20%281%29.jpeg"
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/vasota%20jungle%2C%20Satara%2C%20Maharashtra.jpg"
     ]
   },
   {
@@ -144,10 +181,10 @@ export const DEFAULT_TOURISM = [
       "Yavateshwar Temple is an ancient Hemadpanthi temple dedicated to Lord Shiva, situated atop the Yavateshwar hill on the way to Kaas Plateau.",
       "Perched at a commanding height, it offers mesmerising panoramic views of Satara city below and serene sunrise vistas surrounded by mountain mist."
     ],
-    highlights: ["Ancient Hemadpanthi Architecture", "Hilltop Sunrise & Valley Views", "Peaceful Spiritual Ambience", "20 Mins Drive from EarthOra"],
+    highlights: ["Ancient Hemadpanthi Architecture", "Hilltop Sunrise Vistas", "Peaceful Spiritual Ambience", "20 Mins Drive from EarthOra"],
     images: [
       "https://frevuykpcqueimke.public.blob.vercel-storage.com/3-74.jpeg",
-      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3093.JPG%20%281%29.jpeg"
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/yavateshwar-temple-are-satara-temples-7UbBwQceQC.avif"
     ]
   },
   {
@@ -162,13 +199,15 @@ export const DEFAULT_TOURISM = [
     highlights: ["Historic 16th-Century Maratha Fort", "3,300ft Elevation Panoramic Views", "Stone Fortification Ramparts", "Easy Drive & Walking Paths"],
     images: [
       "https://frevuykpcqueimke.public.blob.vercel-storage.com/Ajinkya%20tara%20fort.jpg",
-      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3090.JPG%20%281%29.jpeg"
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/Devgiri%20fort%20Aurangabad.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/The%20Pride%20of%20Satara%20%E2%80%93%20Ajinkyatara%20Fort%20_%20Maharashtra%20Tourism.jpg",
+      "https://frevuykpcqueimke.public.blob.vercel-storage.com/lohgad%2C%20lonavala.jpg"
     ]
   },
   {
     id: "vajrai_thoseghar",
     title: "Vajrai & Thoseghar Waterfalls",
-    subtitle: "Thunderous Cascades & Lush Valleys",
+    subtitle: "Thunderous Cascades & Nearby Waterfalls",
     distance: "25 mins from EarthOra",
     desc: [
       "Thoseghar and Bhambavli Vajrai Waterfalls are among India's highest and most scenic cascading waterfalls.",
@@ -177,7 +216,8 @@ export const DEFAULT_TOURISM = [
     highlights: ["India's Highest Waterfall Cascades", "Protected Nature Reserve Trails", "Monsoon Mist & Viewing Decks", "Family Friendly Excursion"],
     images: [
       "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3098.JPG.jpeg",
-      "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/20%20Basic%20Cooking%20Tips%20Everyone%20Should%20Know%2C%20According%20to%20a%20Pro%20Chef.jpg"
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3099.JPG.jpeg",
+      "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3100.JPG.jpeg"
     ]
   }
 ];

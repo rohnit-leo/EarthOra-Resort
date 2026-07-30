@@ -1,47 +1,11 @@
 import { motion } from "motion/react";
 import { MapPin, ArrowRight, Compass } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const ATTRACTIONS = [
-  { 
-    name: "UNESCO Kaas Plateau", 
-    time: "15 Mins Away", 
-    desc: "Famous 'Valley of Flowers', a UNESCO World Heritage site overflowing with seasonal wild flora.", 
-    img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/IMG_3090.JPG%20%281%29.jpeg" 
-  },
-  { 
-    name: "Tapola (Mini Kashmir)", 
-    time: "45 Mins Away", 
-    desc: "Tranquil Koyna backwaters, speed boating, water sports & emerald lakeside hills.", 
-    img: "https://frevuykpcqueimke.public.blob.vercel-storage.com/Mini%20Kashmir%20of%20Maharashtra%2CTapola%E2%9B%B0%EF%B8%8F%F0%9F%A4%8D.jpg" 
-  },
-  { 
-    name: "Vasota Fort Trek", 
-    time: "40 Mins Away", 
-    desc: "Thrilling jungle trek through Koyna Wildlife Sanctuary reached via backwater boat ride.", 
-    img: "https://frevuykpcqueimke.public.blob.vercel-storage.com/Vasota%20jungle%20trek%2C%20Satara%20_%20Top%20of%20Vasota%20jungle.jpg" 
-  },
-  { 
-    name: "Yavateshwar Temple", 
-    time: "20 Mins Away", 
-    desc: "Ancient Hemadpanthi Shiva temple on hill peak offering sweeping valley sunrise views.", 
-    img: "https://frevuykpcqueimke.public.blob.vercel-storage.com/3-74.jpeg" 
-  },
-  { 
-    name: "Ajinkyatara Fort", 
-    time: "30 Mins Away", 
-    desc: "Historic Maratha bastion at 3,300ft elevation commanding panoramic 360° Satara vistas.", 
-    img: "https://frevuykpcqueimke.public.blob.vercel-storage.com/Ajinkya%20tara%20fort.jpg" 
-  },
-  { 
-    name: "Vajrai & Thoseghar Falls", 
-    time: "25 Mins Away", 
-    desc: "Dramatic, high cascading waterfalls tumbling down lush green valley cliffs into pristine pools.", 
-    img: "https://3t11ypwbknpvqnak.public.blob.vercel-storage.com/hchc/jvjv/jvjv/IMG_3098.JPG.jpeg" 
-  },
-];
+import { useTourism } from "../../lib/useSiteData";
 
 export function NearbyAttractions() {
+  const { tourismList } = useTourism();
+
   return (
     <section className="py-28 bg-soft-ivory relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -81,32 +45,32 @@ export function NearbyAttractions() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ATTRACTIONS.map((place, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {tourismList.map((place, i) => (
             <motion.div
-              key={place.name}
+              key={place.id || place.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden shadow-md h-[380px] flex flex-col justify-end p-8 border border-elegant-stone/10"
+              transition={{ duration: 0.6, delay: i * 0.08 }}
+              className="group relative rounded-2xl overflow-hidden shadow-md h-[360px] flex flex-col justify-end p-6 border border-elegant-stone/10"
             >
               <img 
-                src={place.img} 
-                alt={place.name} 
+                src={place.images?.[0] || "https://images.unsplash.com/photo-1506744038136-46273834b3fb"} 
+                alt={place.title} 
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-surface/95 via-dark-surface/40 to-transparent" />
               
               <div className="relative z-10 text-white">
-                <div className="flex items-center gap-2 text-subtle-gold text-xs uppercase tracking-widest mb-2 font-semibold">
-                  <MapPin size={14} />
-                  <span>{place.time}</span>
+                <div className="flex items-center gap-1.5 text-subtle-gold text-xs uppercase tracking-widest mb-1.5 font-semibold">
+                  <MapPin size={13} />
+                  <span>{place.distance}</span>
                 </div>
-                <h3 className="text-2xl font-serif text-white mb-2">{place.name}</h3>
-                <p className="text-white/80 text-xs font-light leading-relaxed">
-                  {place.desc}
+                <h3 className="text-xl font-serif text-white mb-1.5 leading-tight">{place.title}</h3>
+                <p className="text-white/80 text-xs font-light leading-relaxed line-clamp-2">
+                  {Array.isArray(place.desc) ? place.desc[0] : place.desc}
                 </p>
               </div>
             </motion.div>

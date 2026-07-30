@@ -22,7 +22,7 @@ import {
   useRooms, saveRoomData, 
   useExperiences, saveExperience, deleteExperience, 
   useTestimonials, saveTestimonial, deleteTestimonial, 
-  useTourism, saveTourismPlace, deleteTourismPlace, 
+  useTourism, saveTourismPlace, deleteTourismPlace, resetTourismToDefault,
   useRestaurant, saveRestaurantItem, deleteRestaurantItem 
 } from "../lib/useSiteData";
 import { compressImageFile } from "../lib/imageUtils";
@@ -515,6 +515,26 @@ export function Admin() {
         {/* --- TAB 3: REGIONAL TOURISM --- */}
         {activeTab === "tourism" && (
           <div className="space-y-10">
+            <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 bg-soft-ivory p-6 rounded-3xl border border-black/10 shadow-xs">
+              <div>
+                <h3 className="font-serif text-lg text-dark-surface font-bold">Regional Tourism Guide</h3>
+                <p className="text-xs text-elegant-stone">Manage attraction details, distances, and high-resolution photo galleries.</p>
+              </div>
+              <button
+                type="button"
+                onClick={async () => {
+                  if (confirm("Reset all tourism attractions and images back to clean original defaults?")) {
+                    await resetTourismToDefault();
+                    setSaveSuccessMsg("Tourism data restored to clean original defaults!");
+                    setTimeout(() => setSaveSuccessMsg(null), 3000);
+                  }
+                }}
+                className="px-5 py-2.5 bg-dark-surface text-white hover:bg-nature-green text-xs font-bold uppercase tracking-widest rounded-xl transition-colors cursor-pointer self-start sm:self-auto shrink-0"
+              >
+                Reset Images & Data to Defaults
+              </button>
+            </div>
+
             {/* Add New Tourism Spot Form */}
             <form onSubmit={handleAddTourism} className="bg-soft-ivory p-8 rounded-3xl border border-black/10 space-y-6 shadow-sm">
               <h2 className="text-xl font-serif text-dark-surface flex items-center gap-2">
