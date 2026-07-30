@@ -188,20 +188,20 @@ export function Hero() {
       </div>
 
       {/* Scrolling Text Marquee */}
-      <div className="absolute bottom-10 left-0 w-full overflow-hidden pointer-events-none opacity-[0.03]">
+      <div className="absolute bottom-6 md:bottom-10 left-0 w-full overflow-hidden pointer-events-none opacity-[0.20]">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+          transition={{ duration: 25, ease: "linear", repeat: Infinity }}
           className="flex whitespace-nowrap"
         >
-          <span className="text-4xl md:text-8xl font-serif text-dark-surface px-8">ECO-LUXURY SANCTUARY</span>
-          <span className="text-4xl md:text-8xl font-serif text-dark-surface px-8">·</span>
-          <span className="text-4xl md:text-8xl font-serif text-dark-surface px-8">KAAS PLATEAU</span>
-          <span className="text-4xl md:text-8xl font-serif text-dark-surface px-8">·</span>
-          <span className="text-4xl md:text-8xl font-serif text-dark-surface px-8">ECO-LUXURY SANCTUARY</span>
-          <span className="text-4xl md:text-8xl font-serif text-dark-surface px-8">·</span>
-          <span className="text-4xl md:text-8xl font-serif text-dark-surface px-8">KAAS PLATEAU</span>
-          <span className="text-4xl md:text-8xl font-serif text-dark-surface px-8">·</span>
+          <span className="text-3xl md:text-7xl font-serif text-dark-surface/90 tracking-widest px-8">ECO-LUXURY SANCTUARY</span>
+          <span className="text-3xl md:text-7xl font-serif text-dark-surface/90 px-8">·</span>
+          <span className="text-3xl md:text-7xl font-serif text-dark-surface/90 tracking-widest px-8">KAAS PLATEAU</span>
+          <span className="text-3xl md:text-7xl font-serif text-dark-surface/90 px-8">·</span>
+          <span className="text-3xl md:text-7xl font-serif text-dark-surface/90 tracking-widest px-8">ECO-LUXURY SANCTUARY</span>
+          <span className="text-3xl md:text-7xl font-serif text-dark-surface/90 px-8">·</span>
+          <span className="text-3xl md:text-7xl font-serif text-dark-surface/90 tracking-widest px-8">KAAS PLATEAU</span>
+          <span className="text-3xl md:text-7xl font-serif text-dark-surface/90 px-8">·</span>
         </motion.div>
       </div>
 

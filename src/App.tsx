@@ -24,6 +24,7 @@ import { PrivacyPolicy } from "./pages/policies/PrivacyPolicy";
 import { TermsConditions } from "./pages/policies/TermsConditions";
 import { CancellationPolicy } from "./pages/policies/CancellationPolicy";
 import { HouseRules } from "./pages/policies/HouseRules";
+import { Admin } from "./pages/Admin";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -80,6 +81,7 @@ export default function App() {
             <Route path="/terms" element={<TermsConditions />} />
             <Route path="/cancellation" element={<CancellationPolicy />} />
             <Route path="/rules" element={<HouseRules />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>
         <Footer />

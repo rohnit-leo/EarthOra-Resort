@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Clock, MapPin, Phone, Flame, UtensilsCrossed, Sparkles, X, ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useState } from "react";
 import { redirectToWhatsApp } from "../lib/utils";
+import { useRestaurant } from "../lib/useSiteData";
 
-const KITCHEN_HERO = "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/20%20Basic%20Cooking%20Tips%20Everyone%20Should%20Know%2C%20According%20to%20a%20Pro%20Chef.jpg";
+const DEFAULT_KITCHEN_HERO = "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/20%20Basic%20Cooking%20Tips%20Everyone%20Should%20Know%2C%20According%20to%20a%20Pro%20Chef.jpg";
 
-const KITCHEN_STORY = [
+const DEFAULT_KITCHEN_STORY = [
   "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/LightBox%20-%20India%20Palace.jpg",
   "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/Sophisticated%20Food%20Photography%20by%20Natalie%20Chaban%20_%20Capturing%20Gourmet%20Dishes.jpg",
   "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/download%20%284%29.jpg",
   "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/download%20%285%29.jpg"
 ];
 
-const FOOD_GALLERY = [
+const DEFAULT_FOOD_GALLERY = [
   "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/download%20%286%29.jpg",
   "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/LightBox%20-%20India%20Palace.jpg",
   "https://frevuykpcqueimke.public.blob.vercel-storage.com/restaurant%20/Sophisticated%20Food%20Photography%20by%20Natalie%20Chaban%20_%20Capturing%20Gourmet%20Dishes.jpg",
@@ -29,19 +30,29 @@ const FOOD_GALLERY = [
 ];
 
 export function Restaurant() {
+  const { restaurantItems } = useRestaurant();
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
+
+  // Extract custom images from dynamic items if present
+  const dynamicImages = restaurantItems
+    .map((item: any) => item.image)
+    .filter((img: any) => typeof img === "string" && img.length > 0);
+
+  const heroImage = dynamicImages[0] || DEFAULT_KITCHEN_HERO;
+  const kitchenStory = DEFAULT_KITCHEN_STORY;
+  const foodGallery = dynamicImages.length > 0 ? Array.from(new Set([...dynamicImages, ...DEFAULT_FOOD_GALLERY])) : DEFAULT_FOOD_GALLERY;
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (activeImageIndex !== null) {
-      setActiveImageIndex((activeImageIndex + 1) % FOOD_GALLERY.length);
+    if (activeImageIndex !== null && foodGallery.length > 0) {
+      setActiveImageIndex((activeImageIndex + 1) % foodGallery.length);
     }
   };
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (activeImageIndex !== null) {
-      setActiveImageIndex((activeImageIndex - 1 + FOOD_GALLERY.length) % FOOD_GALLERY.length);
+    if (activeImageIndex !== null && foodGallery.length > 0) {
+      setActiveImageIndex((activeImageIndex - 1 + foodGallery.length) % foodGallery.length);
     }
   };
 
@@ -88,7 +99,7 @@ export function Restaurant() {
         >
           <div className="aspect-[16/9] md:aspect-[21/9] w-full">
             <img 
-              src={KITCHEN_HERO} 
+              src={heroImage} 
               alt="EarthOra Resort Kitchen Preparation" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
@@ -130,7 +141,7 @@ export function Restaurant() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            {KITCHEN_STORY.map((img, i) => (
+            {kitchenStory.map((img: string, i: number) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -162,7 +173,7 @@ export function Restaurant() {
 
           {/* Food Photo Gallery Grid */}
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-            {FOOD_GALLERY.map((img, i) => (
+            {foodGallery.map((img: string, i: number) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -222,7 +233,7 @@ export function Restaurant() {
 
       {/* Lightbox Modal */}
       <AnimatePresence>
-        {activeImageIndex !== null && (
+        {activeImageIndex !== null && foodGallery[activeImageIndex] && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -245,7 +256,7 @@ export function Restaurant() {
             </button>
 
             <img 
-              src={FOOD_GALLERY[activeImageIndex]} 
+              src={foodGallery[activeImageIndex]} 
               alt="Delicacy Full View" 
               className="max-w-full max-h-full object-contain shadow-2xl rounded-lg"
               onClick={(e) => e.stopPropagation()}
@@ -259,7 +270,7 @@ export function Restaurant() {
             </button>
 
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 tracking-widest text-sm">
-              {activeImageIndex + 1} / {FOOD_GALLERY.length}
+              {activeImageIndex + 1} / {foodGallery.length}
             </div>
           </motion.div>
         )}

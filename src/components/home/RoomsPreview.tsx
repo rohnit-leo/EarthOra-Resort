@@ -1,29 +1,33 @@
+import React from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { redirectToWhatsApp } from "../../lib/utils";
-
-const ROOMS = [
-  {
-    id: "standard",
-    path: "/room/standard",
-    name: "Standard Cottage",
-    image: "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2948.JPG%20%281%29.jpeg",
-    desc: "Elegant and comfortable cottage designed for a peaceful retreat with beautiful nature views.",
-    price: "₹2,000",
-    features: ["2 Guests", "Queen Bed", "En-suite Bathroom", "Valley View"],
-  },
-  {
-    id: "premium",
-    path: "/room/premium",
-    name: "Premium Cottage",
-    image: "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2883.JPG.jpeg",
-    desc: "Our most luxurious offering featuring expansive space, premium amenities, and unparalleled comfort.",
-    price: "₹2,500",
-    features: ["2-4 Guests", "King Bed", "Private Balcony", "Premium Toiletries"],
-  },
-];
+import { useRooms } from "../../lib/useSiteData";
 
 export function RoomsPreview() {
+  const { rooms } = useRooms();
+
+  const roomList = [
+    {
+      id: "standard",
+      path: "/room/standard",
+      name: rooms.standard?.title || "Standard Eco Cottage",
+      image: rooms.standard?.images?.[0] || "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2948.JPG%20%281%29.jpeg",
+      desc: rooms.standard?.description || "Elegant and comfortable cottage designed for a peaceful retreat with beautiful nature views.",
+      price: `₹${(rooms.standard?.price || 4999).toLocaleString("en-IN")}`,
+      features: rooms.standard?.highlights || ["2 Guests", "Queen Bed", "En-suite Bathroom", "Valley View"],
+    },
+    {
+      id: "premium",
+      path: "/room/premium",
+      name: rooms.premium?.title || "Premium Valley View Cottage",
+      image: rooms.premium?.images?.[0] || "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagest/IMG_2883.JPG.jpeg",
+      desc: rooms.premium?.description || "Our most luxurious offering featuring expansive space, premium amenities, and unparalleled comfort.",
+      price: `₹${(rooms.premium?.price || 7499).toLocaleString("en-IN")}`,
+      features: rooms.premium?.highlights || ["2-4 Guests", "King Bed", "Private Balcony", "Premium Toiletries"],
+    },
+  ];
+
   return (
     <section className="py-20 md:py-24 bg-luxury-white">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
@@ -59,7 +63,7 @@ export function RoomsPreview() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          {ROOMS.map((room, i) => (
+          {roomList.map((room, i) => (
             <motion.div 
               key={room.id}
               initial={{ opacity: 0, y: 30 }}

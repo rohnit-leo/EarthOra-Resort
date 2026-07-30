@@ -2,12 +2,20 @@ import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Check, Coffee, Wifi, Tv, Bath, Wind, ChevronLeft, ChevronRight, X, Clock, Shield, Map } from "lucide-react";
 import { redirectToWhatsApp } from "../../lib/utils";
-import { getDynamicPrice } from "../../lib/pricing";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useRooms } from "../../lib/useSiteData";
 
 export function StandardCottage() {
-  const basePrice = 2000;
-  const [currentPrice, setCurrentPrice] = useState(basePrice);
+  const { rooms } = useRooms();
+  const roomData = rooms.standard || {
+    title: "Standard Eco Cottage",
+    price: 4999,
+    subtitle: "Cozy Private Mountain Sanctuary",
+    description: "Designed for a peaceful retreat, our Standard Cottages offer a harmonious blend of comfort and natural beauty.",
+    images: ["https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2948.JPG%20%281%29.jpeg"]
+  };
+
+  const currentPrice = roomData.price || 4999;
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   
   const [bookingForm, setBookingForm] = useState({
@@ -19,14 +27,10 @@ export function StandardCottage() {
     breakfast: "Yes"
   });
 
-  useEffect(() => {
-    setCurrentPrice(getDynamicPrice(basePrice));
-  }, []);
-
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
     redirectToWhatsApp({
-      Intent: "Book Standard Cottage",
+      Intent: `Book ${roomData.title || "Standard Cottage"}`,
       Name: bookingForm.name,
       Phone: bookingForm.phone,
       "Check In": bookingForm.checkIn,
@@ -36,19 +40,11 @@ export function StandardCottage() {
     });
   };
 
-  const images = [
+  const images = (roomData.images && roomData.images.length > 0) ? roomData.images : [
     "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/IMG_2948.JPG%20%281%29.jpeg",
     "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2935.JPG.jpeg",
     "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2939.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2944.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2948.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2951.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2954.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2955.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2956.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2964.JPG.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2967.JPG%20%281%29.jpeg",
-    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2970.JPG%20%281%29.jpeg"
+    "https://falh4wp7xhmztgpi.public.blob.vercel-storage.com/cottagestt/IMG_2944.JPG.jpeg"
   ];
 
   const handleNext = (e: React.MouseEvent) => {

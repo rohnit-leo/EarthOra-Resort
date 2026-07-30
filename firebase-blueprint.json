@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "rooms": {
+      "title": "string",
+      "price": "number",
+      "subtitle": "string",
+      "description": "string",
+      "highlights": "array",
+      "images": "array",
+      "amenities": "array"
+    },
+    "experiences": {
+      "title": "string",
+      "category": "string",
+      "desc": "string",
+      "image": "string",
+      "highlights": "array"
+    },
+    "testimonials": {
+      "name": "string",
+      "date": "string",
+      "text": "string",
+      "rating": "number"
+    },
+    "tourism": {
+      "title": "string",
+      "subtitle": "string",
+      "distance": "string",
+      "tagline": "string",
+      "desc": "array",
+      "highlights": "array",
+      "images": "array"
+    },
+    "restaurant": {
+      "title": "string",
+      "category": "string",
+      "desc": "string",
+      "image": "string"
+    }
+  }
+}
