@@ -18,6 +18,10 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
+    if (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches) {
+      return;
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
@@ -43,7 +47,7 @@ export function Hero() {
             y: mousePosition.y * -50,
           }}
           transition={{ type: "spring", stiffness: 50, damping: 20 }}
-          className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-nature-green/10 rounded-full blur-[120px] mix-blend-multiply"
+          className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-nature-green/10 rounded-full blur-2xl md:blur-[120px] mix-blend-multiply"
         />
         <motion.div 
           animate={{
@@ -51,7 +55,7 @@ export function Hero() {
             y: mousePosition.y * 50,
           }}
           transition={{ type: "spring", stiffness: 40, damping: 20 }}
-          className="absolute bottom-1/4 right-1/4 w-[50vw] h-[50vw] bg-subtle-gold/10 rounded-full blur-[150px] mix-blend-multiply"
+          className="absolute bottom-1/4 right-1/4 w-[50vw] h-[50vw] bg-subtle-gold/10 rounded-full blur-2xl md:blur-[150px] mix-blend-multiply"
         />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_20%,transparent_100%)]" />
       </div>

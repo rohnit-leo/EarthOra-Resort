@@ -58,6 +58,12 @@ function ScrollToTop() {
 
 export default function App() {
   useEffect(() => {
+    // Skip Lenis smooth scroll on mobile touch devices for instant 60/120Hz native scrolling performance
+    const isMobile = window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    if (isMobile) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

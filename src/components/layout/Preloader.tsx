@@ -16,15 +16,14 @@ export function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Background image preloading
-    CRITICAL_IMAGES.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
+    const isMobile = window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    
+    // On mobile, clear preloader immediately (300ms) for instantaneous start; desktop gets a quick 600ms transition
+    const displayDuration = isMobile ? 350 : 600;
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1800);
+    }, displayDuration);
 
     return () => clearTimeout(timer);
   }, []);
