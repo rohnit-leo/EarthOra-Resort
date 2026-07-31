@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Calendar, Users, Home, Phone, User, MessageSquare, Send } from "lucide-react";
 import { redirectToWhatsApp } from "../../lib/utils";
@@ -20,6 +20,17 @@ export function BookingModal({ isOpen, onClose, defaultRoom = "General Inquiry /
     specialRequests: "",
   });
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     redirectToWhatsApp({
@@ -38,7 +49,11 @@ export function BookingModal({ isOpen, onClose, defaultRoom = "General Inquiry /
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-hidden">
+        <div 
+          data-lenis-prevent
+          data-lenis-prevent-touch
+          className="fixed inset-0 z-[500] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto"
+        >
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -54,7 +69,9 @@ export function BookingModal({ isOpen, onClose, defaultRoom = "General Inquiry /
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative w-full max-w-lg bg-luxury-white rounded-2xl sm:rounded-3xl shadow-2xl border border-black/10 overflow-hidden z-10 max-h-[88vh] sm:max-h-[85vh] flex flex-col my-auto"
+            data-lenis-prevent
+            data-lenis-prevent-touch
+            className="relative w-full max-w-lg bg-luxury-white rounded-2xl sm:rounded-3xl shadow-2xl border border-black/10 overflow-hidden z-10 max-h-[90vh] flex flex-col my-auto"
           >
             {/* Modal Header */}
             <div className="bg-dark-surface text-luxury-white p-4 sm:p-6 relative shrink-0 border-b border-white/10">
@@ -76,7 +93,12 @@ export function BookingModal({ isOpen, onClose, defaultRoom = "General Inquiry /
             </div>
 
             {/* Modal Form Container with Smooth Scroll */}
-            <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-3.5 text-dark-surface overflow-y-auto flex-1">
+            <form 
+              onSubmit={handleSubmit} 
+              data-lenis-prevent
+              data-lenis-prevent-touch
+              className="p-4 sm:p-6 space-y-3.5 text-dark-surface overflow-y-auto flex-1 max-h-[calc(90vh-110px)] overscroll-contain"
+            >
               {/* Room Selection */}
               <div>
                 <label className="block text-[11px] uppercase tracking-wider font-semibold text-elegant-stone mb-1 flex items-center gap-1.5">
